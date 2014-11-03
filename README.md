@@ -1,7 +1,9 @@
 # QSTemplate
 ----------
 
-<img src="http://cs622016.vk.me/v622016523/32cf/icUtNzuqwW8.jpg" alt="Drawing" style="width: 200px; max-height: 100%"/>
+<a href="https://github.com/bonkalol/QSTemplate">Grunt</a> или <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> версия
+
+## Logo will be soon
 
 QSTempalate это шаблон для быстрого старта проекта. Состоит он из 3ех мощных инструментов 
 front-end разработки.
