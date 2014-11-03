@@ -1,7 +1,7 @@
 {
   "name": "QSTemplate-gulp",
   "version": "1.0.0",
-  "description": "Quick Start template for your web project",
+  "description": "Quick Start template for your web-project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
