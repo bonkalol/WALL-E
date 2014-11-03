@@ -1,0 +1,96 @@
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex($justify, $align) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin flexDirection($direction) {
+	display: flex;
+	flex-direction: $direction
+}
+
+@mixin triangle($position, $width, $height, $color) {
+	height: 0;
+	width: 0;
+	border-style: solid;
+
+	@if $position == left {
+		border-width: $height/2 $width $height/2 0;
+		border-color: transparent $color transparent transparent;
+	}
+	// like a switch
+		@else if $position == bottom-left {
+			border-width: $width 0 0 $width;
+			border-color: transparent transparent transparent $color;
+		}
+
+		@else if $position == bottom {
+			border-width: $height $width/2 0 $width/2;
+			border-color: $color transparent transparent transparent;
+		}
+
+		@else if $position == bottom-right {
+			border-width: 0 0 $width $width;
+			border-color: transparent transparent $color transparent;
+		}
+
+		@else if $position == right {
+			border-width: $height/2 0 $height/2 $width;
+			border-color: transparent transparent transparent $color;
+		}
+
+		@else if $position == top-right {
+			border-width: 0 $width $width 0;
+			border-color: transparent $color transparent transparent;
+		}
+
+		@else if $position == top {
+			border-width: 0 $width/2 $height $width/2;
+			border-color: transparent transparent $color transparent;
+		}
+
+		@else if $position == top-left {
+			border-width: $width $width 0 0;
+			border-color: $color transparent transparent transparent;
+		}
+}
+
+
+@mixin placeholderColor($color) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+
+	&:-moz-placeholder {
+		color: $color;  
+	}
+
+	&::-moz-placeholder {
+		color: $color;
+	}
+
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+@mixin filter($fiterName, $filterValue) {
+	-webkit-filter: $filterName($filterValue);
+	-moz-filter: $filterName($filterValue);
+	-o-filter: $filterName($filterValue);
+	-ms-filter: $filterName($filterValue);
+	filter: $filterName($filterValue);
+}
+
+@mixin blur($radius) {
+	-webkit-filter: blur($radius);
+	-moz-filter: blur($radius);
+	-o-filter: blur($radius);
+	-ms-filter: blur($radius);
+	filter: blur($radius);
+}

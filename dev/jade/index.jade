@@ -1,0 +1,13 @@
+doctype html
+
+include meta/mixins
+include meta/variables
+
+html
+	head
+		+OGhead('QSTemplate Title' ,'QSTemplate OG Title', 'QSTemplate Url', 'QSTempalte Image', 'QSTemplate Location', 'QSTemplate Description', 'css/main.css')
+		+responsiveMeta()
+	body
+		
+
+		+script('js/main.js')
