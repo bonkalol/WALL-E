@@ -8,16 +8,21 @@ front-end разработки.
 
 ## Установка
 
-	git clone https://github.com/bonkalol/QSTemple .
+	git clone https://github.com/bonkalol/QSTemplate-gulp .
 	npm install
+
+## Haчало работы
+
+	gulp watch
 
 ## Баги, пожелания
 
-	https://github.com/bonkalol/QSTemple/issues
+	https://github.com/bonkalol/QSTemplate-gulp/issues
 
 ## Пожертвования
 
 	Yandex Money 410011314798585
+
 
 ## Jade
 
@@ -31,11 +36,11 @@ Node шаблонизатор, который тут используется к
 SASS - CSS Препроцессор, который позволяет расширить CSS, дает возможность использовать Циклы и Условия,
 а так же переменные и многое другое. Ознакомиться можно здесь => <a href="http://sass-lang.com/">sass-lang.com</a>.
 
-## Grunt
+## Gulp
 
-Система сборки. Grunt комплирует файлы, собирает из множества файлов один файл, минифицирует код/изображения,
-сам создаст вам спрайт, сам заметить изменения в файле и перекомпилирует его, а так же многое другое. Более подробно о Grunt
-можно прочитать на <a href="http://gruntjs.com/">gruntjs.com</a>.
+Система сборки. Gulp комплирует файлы, собирает из множества файлов один файл, минифицирует код/изображения,
+сам создаст вам спрайт, сам заметить изменения в файле и перекомпилирует его, а так же многое другое, к тому же он намного быстрее чем <a href="http://gruntjs.com/">Grunt</a>. Более подробно о Gulp
+можно прочитать на <a href="http://gulpjs.com/">gulpjs.com/</a>.
 
 ## Основные feature
 
@@ -93,12 +98,12 @@ Jade
 
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-tree.png" alt="jade-tree" style="max-height: 100%">
 
-В папке jade уже создана папка layouts / meta, в папке layouts лежат базовые layouts проекта. В папке meta есть 2 файла
+В папке jade уже созданы папка layouts / meta / partials, в папке layouts лежат базовые layouts проекта. В папке meta есть 2 файла
 mixin.jade, в котором хранятся миксины, например, такие
 
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-mixins.png" alt="" style="max-height: 100%">
 
-и variables.jade , в котором хранятся переменные. Страницы проекта по задумке создаются в корневом каталоге папки jade. Примером может служить файл index.jade.
+и variables.jade , в котором хранятся переменные. Страницы проекта по задумке создаются в корневом каталоге папки jade. Примером может служить файл index.jade. Папка partials предназначена для отдельных элементов страницы, которые дублируются на других страницах, например, навигация по сайту, хедер, футер или сайдбар.
 
 ----------
 
@@ -109,61 +114,44 @@ Production
 Ну тут я думаю все понятно, CSS / JS / Images , точнее их production версии, то есть scss скомпилированный в CSS, ужатый и собранный в один файл JS
 Jade скомпилированный в HTML, и минифицированные картинки.
 
-### Немного о Gruntfile.js
+### Немного о gulpfile.js
 
-В грант включены следующие tasks.
+В gulp включены следующие таски
 
 	// load tasks
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-jade');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-newer');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-spritesmith');
-
-
-А так же registerTask
-
-	// tasks
-	grunt.registerTask('default', ['sass', 'jade', 'imagemin', 'autoprefixer']);
-	grunt.registerTask('compile', ['sass', 'jade', 'autoprefixer']);
-	grunt.registerTask('minimg', ['imagemin']);
-	grunt.registerTask('prefix', ['autoprefixer']);
-	grunt.registerTask('jsprod', ['concat', 'uglify']);
-	grunt.registerTask('copyFonts', ['copy:fonts']);
-	grunt.registerTask('copyImages', ['copy:images']);
-	grunt.registerTask('imgSprite', ['sprite', 'sass', 'autoprefixer']);
+	gulp = require('gulp'),
+	sass = require('gulp-ruby-sass'),
+	jade = require('gulp-jade'),
+	watch = require('gulp-watch'),
+	autoprefixer = require('gulp-autoprefixer'),
+	copy = require('gulp-copy'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglifyjs'),
+	jshint = require('gulp-jshint'),
+	stylish = require('jshint-stylish'),
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant'),
+	spritesmith = require('gulp.spritesmith');
 
 ----------
 
 Js Concat , сначала подключается jquery, потом third-party скрипты, а потом только наш main.js
 в котором находится написанный нами код
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/grunt%20concat.png" alt="" style="max-height: 100%;">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-concat.png" alt="" style="max-height: 100%;">
 
+SASS Такст
 
-CSS Autoprefixer можете выставить браузеры под какие надо добавлять префиксы и забыть про то, что такое префиксы
+В Sass такск уже интегрирован CSS Autoprefixer. Вы можете выставить браузеры под какие надо добавлять префиксы и забыть про то, что такое префиксы.
+Так же можно изменить стиль исходного CSS.
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/autoprefixer.png" alt="" style="max-height: 100%;">
-
-
-Стиль исходного CSS файла вы можете поменять изменив значение style у SASS таска.
-
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/sass.png" alt="" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-sass.png" alt="" style="max-height: 100%">
 
 Sprite
-
-				src: 'dev/img/sprite/*.png',
-				destImg: 'production/img/sprite.png',
-				destCSS: 'dev/scss/project/_sprite.scss'
 
 Будут браться все .png файлы из dev/img/sprite/ , собираться в один файл production/img/sprite.png и создавать на основе dev/scss/project/_sprite.scss
 
 ----------
 
-Readme created 01.11.2014 : 21-54
+Readme created 02.11.2014 : 20-47
 По всем вопросам: <a href="http://blinnikovbogdan.ru/contact">Связывайтесь со мной</a> или пишите мне <a href="mailto:bonkalol@list.ru?subject=QSTemplate">bonkalol@list.ru</a>

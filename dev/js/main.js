@@ -8,7 +8,7 @@ function init() {
 
 	ieTest();
 
-};
+}
 
 function ieTest() {
 	var ie_upto10 = /MSIE \d/.test(navigator.userAgent),
