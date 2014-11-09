@@ -104,17 +104,19 @@ gulp.task('imagemin', function () {
 
 // Sprite Smith
 gulp.task('sprite', function () {
-	var spriteData = gulp.src('dev/img/sprite/*.png').pipe(spritesmith({
+	gulp.src('dev/img/sprite/*.png').pipe(spritesmith({
 		imgName: 'sprite.png',
-		cssName: '../../dev/scss/_sprite.scss'
-	}));
-	spriteData.pipe(gulp.dest('production/img/'));
+		cssName: '../../dev/scss/project/_sprite.scss',
+		imgPath: '../img/sprite.png'
+	}))
+	.pipe(gulp.dest('production/img/'));
 });
 
 
 // Copy Fonts
 gulp.task('copyFonts', function(){
-	return gulp.src('dev/font/*.*').pipe(gulp.dest('production/font/'));
+	return gulp.src('dev/font/*.{svg,eot,woff,woff2,otf,ttf}')
+	.pipe(gulp.dest('production/font/'));
 });
 
 
@@ -138,12 +140,12 @@ gulp.task('watch', function () {
 		gulp.start('concat', cb);
 	});
 	// fonts watcher
-	watch('dev/font/*.*', function (files, cb) {
+	watch('./dev/font/*.{svg,eot,woff,woff2,otf,ttf}', function (files, cb) {
 		gulp.start('copyFonts', cb);
 	});
 	// sprite watcher
 	watch('dev/img/sprite/*.png', function (files, cb) {
-		gulp.start('sprite', cb);
+		gulp.run('sprite', 'sass');
 	});
 	// minimage watcher
 	watch('dev/img/*.{png, jpg}', function(files, cb) {

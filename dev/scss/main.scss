@@ -15,6 +15,10 @@
 // project
 @import 'project/class.lib';
 @import 'project/sprite';
+// project items
+@import 'project/items/header';
+@import 'project/items/nav';
+@import 'project/items/footer';
 // project pages
 @import 'project/pages/index';
 
@@ -23,7 +27,9 @@
 // cosmetic
 @import 'cosmetic/animation';
 @import 'cosmetic/cosmetic';
-@import 'cosmetic/responsive';
 
 // third-party css
 @import 'third-party/jelect';
+
+// cosmetic responsive
+@import 'cosmetic/responsive';

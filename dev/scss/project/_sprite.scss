@@ -9,35 +9,15 @@ The large array-like variables contain all information about a single icon
 $icon-home: x y offset_x offset_y width height total_width total_height image_path;
 */
 $grunt-logo-x: 0px;
-$grunt-logo-y: 504px;
+$grunt-logo-y: 0px;
 $grunt-logo-offset-x: 0px;
-$grunt-logo-offset-y: -504px;
+$grunt-logo-offset-y: 0px;
 $grunt-logo-width: 512px;
 $grunt-logo-height: 512px;
 $grunt-logo-total-width: 512px;
-$grunt-logo-total-height: 1016px;
-$grunt-logo-image: '../../../production/img/sprite.png';
-$grunt-logo: 0px 504px 0px -504px 512px 512px 512px 1016px '../../../production/img/sprite.png';
-$jade-logo-x: 0px;
-$jade-logo-y: 0px;
-$jade-logo-offset-x: 0px;
-$jade-logo-offset-y: 0px;
-$jade-logo-width: 217px;
-$jade-logo-height: 120px;
-$jade-logo-total-width: 512px;
-$jade-logo-total-height: 1016px;
-$jade-logo-image: '../../../production/img/sprite.png';
-$jade-logo: 0px 0px 0px 0px 217px 120px 512px 1016px '../../../production/img/sprite.png';
-$sass-logo-x: 0px;
-$sass-logo-y: 120px;
-$sass-logo-offset-x: 0px;
-$sass-logo-offset-y: -120px;
-$sass-logo-width: 512px;
-$sass-logo-height: 384px;
-$sass-logo-total-width: 512px;
-$sass-logo-total-height: 1016px;
-$sass-logo-image: '../../../production/img/sprite.png';
-$sass-logo: 0px 120px 0px -120px 512px 384px 512px 1016px '../../../production/img/sprite.png';
+$grunt-logo-total-height: 512px;
+$grunt-logo-image: '../img/sprite.png';
+$grunt-logo: 0px 0px 0px 0px 512px 512px 512px 512px '../img/sprite.png';
 
 /*
 The provided mixins are intended to be used with the array-like variables

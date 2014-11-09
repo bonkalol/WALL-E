@@ -33,6 +33,7 @@
     "gulp-jshint": "~1.9.0",
     "jshint-stylish": "~1.0.0",
     "gulp-imagemin": "~1.2.1",
-    "imagemin-pngquant": "~4.0.0"
+    "imagemin-pngquant": "~4.0.0",
+    "gulp.spritesmith": "~1.4.0"
   }
 }
