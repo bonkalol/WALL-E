@@ -48,7 +48,7 @@ SASS - CSS Препроцессор, который позволяет расш�
 
 ### Продуманная архитекрута проекта
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/template-tree.png" alt="Tempalte Tree" style="max-height: 100%"/>
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/template-tree.png" alt="Tempalte Tree" style="max-width: 100%"/>
 
 Dev папка - в ней находятся всевозможные исходиники, будь то изображения / scss / jade файлы
 
@@ -56,7 +56,7 @@ Dev папка - в ней находятся всевозможные исхо�
 
 Dev -> scss
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/scss-tree.png" alt="SCSS tree" style="max-height: 100%"/>
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/scss-tree.png" alt="SCSS tree" style="max-width: 100%"/>
 
 Тут хочу подробно остановиться на 2ух файлах, это base.scss и config.scss
 
@@ -68,7 +68,7 @@ box-sizing: border-box, сглаживать ли шрифты, а так же �
 
 Эти данные в последствии используются в коде, для включения/отключения некоторых функций.
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/responsive-scss.png" alt="repsonsive scss screenshot" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/responsive-scss.png" alt="repsonsive scss screenshot" style="max-width: 100%">
 
 Например как в этом пример. Мы видим, что если условие выполняется, то тогда media queries брекпоинты работают. Если в config.scss
 поменять значение на false, то работать они соответсвенно не будут.
@@ -98,20 +98,33 @@ box-sizing: border-box, сглаживать ли шрифты, а так же �
 
 Jade
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-tree.png" alt="jade-tree" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-tree.png" alt="jade-tree" style="max-width: 100%">
 
 В папке jade уже созданы папка layouts / meta / partials, в папке layouts лежат базовые layouts проекта. В папке meta есть 2 файла
 mixin.jade, в котором хранятся миксины, например, такие
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-mixins.png" alt="" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-mixins.png" alt="" style="max-width: 100%">
 
 и variables.jade , в котором хранятся переменные. Страницы проекта по задумке создаются в корневом каталоге папки jade. Примером может служить файл index.jade. Папка partials предназначена для отдельных элементов страницы, которые дублируются на других страницах, например, навигация по сайту, хедер, футер или сайдбар.
+
+Так же в релизе 1.1 была добавлена Svg библиотека для svg миксинов. Основная идея библиотеки заключается в том, чтобы вставлять svg изображения
+тегом svg и при этом оставлять наш код читаемым, хочу заметить, что такой подход я рекомендую если с html кодом, в дальнейшем, никто из других
+разработчиков не будет, а работа будет осуществляться только через jade препроцессор.
+
+Т.е. я предлагаю вместо
+
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-svg.png" alt="" style="max-width: 100%">
+
+Использовать это
+
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-svg-mixin.png" alt="" style="max-width: 100%">
+
 
 ----------
 
 Production
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/production-tree.png" alt="" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/production-tree.png" alt="" style="max-width: 100%">
 
 Ну тут я думаю все понятно, CSS / JS / Images , точнее их production версии, то есть scss скомпилированный в CSS, ужатый и собранный в один файл JS
 Jade скомпилированный в HTML, и минифицированные картинки.
@@ -140,14 +153,14 @@ Jade скомпилированный в HTML, и минифицированны
 Js Concat , сначала подключается jquery, потом third-party скрипты, а потом только наш main.js
 в котором находится написанный нами код
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-concat.png" alt="" style="max-height: 100%;">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-concat.png" alt="" style="max-width: 100%;">
 
-SASS Такст
+SASS Таск
 
-В Sass такск уже интегрирован CSS Autoprefixer. Вы можете выставить браузеры под какие надо добавлять префиксы и забыть про то, что такое префиксы.
+В Sass таск уже интегрирован CSS Autoprefixer. Вы можете выставить браузеры под какие надо добавлять префиксы и забыть про то, что такое префиксы.
 Так же можно изменить стиль исходного CSS.
 
-<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-sass.png" alt="" style="max-height: 100%">
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-sass.png" alt="" style="max-width: 100%">
 
 Sprite
 
@@ -155,5 +168,13 @@ Sprite
 
 ----------
 
+### Release 1.1.0
+
+- Добавлена зависимость gulp.spritesmit в devDepend , теперь после npm install вам не придется писать npm install gulp.spritesmit.
+- Багфиксинг gulpfile.js.
+- Добавлена svg.lib.jade для хранения миксинов svg файлов.
+
+----------
+
 Readme created 02.11.2014 : 20-47
-По всем вопросам: <a href="http://blinnikovbogdan.ru/contact">Связывайтесь со мной</a> или пишите мне <a href="mailto:bonkalol@list.ru?subject=QSTemplate">bonkalol@list.ru</a>
+По всем вопросам: <a href="http://blinnikovbogdan.ru/#social">Связывайтесь со мной</a> или пишите мне <a href="mailto:bonkalol@list.ru?subject=QSTemplate">bonkalol@list.ru</a>
