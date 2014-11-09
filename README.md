@@ -119,6 +119,10 @@ mixin.jade, в котором хранятся миксины, например,
 
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-svg-mixin.png" alt="" style="max-width: 100%">
 
+Хороший пример как это использовать можно посмотреть <a href="https://github.com/bonkalol/blinnikov-jade-sass/">здесь</a>.
+Сам <a href="https://github.com/bonkalol/blinnikov-jade-sass/blob/master/dev/jade/meta/svg.jade">svg.library</a> и как он используется
+<a href="https://github.com/bonkalol/blinnikov-jade-sass/blob/master/dev/jade/index.jade">здесь</a>.
+
 
 ----------
 
