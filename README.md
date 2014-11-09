@@ -174,7 +174,7 @@ Sprite
 
 ### Release 1.1.0
 
-- Добавлена зависимость gulp.spritesmit в devDepend , теперь после npm install вам не придется писать npm install gulp.spritesmit.
+- Добавлена зависимость gulp.spritesmith в devDepend , теперь после npm install вам не придется писать npm install gulp.spritesmith.
 - Багфиксинг gulpfile.js.
 - Добавлена svg.lib.jade для хранения миксинов svg файлов.
 
