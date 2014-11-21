@@ -15,7 +15,7 @@ front-end разработки.
 
 ## Haчало работы
 
-	gulp watch
+	gulp start
 
 ## Баги, пожелания
 
@@ -61,6 +61,8 @@ Dev -> scss
 Тут хочу подробно остановиться на 2ух файлах, это base.scss и config.scss
 
 <strong style="font-size: 1.2em">Config.scss</strong>
+
+<img src="http://blinnikovbogdan.ru/QSTemplate/images/config.png" alt="SCSS tree" style="max-width: 100%"/>
 
 В Файле config.scss лежат основные конфиги проекта, в нем мы можем определить, нужен ли нам
 reset.css, repsonsive ( включение, выключение media queries) ли сайт, использовать ли свойство
@@ -120,7 +122,7 @@ mixin.jade, в котором хранятся миксины, например,
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/jade-svg-mixin.png" alt="" style="max-width: 100%">
 
 Хороший пример как это использовать можно посмотреть <a href="https://github.com/bonkalol/blinnikov-jade-sass/">здесь</a>.
-Сам <a href="https://github.com/bonkalol/blinnikov-jade-sass/blob/master/dev/jade/meta/svg.jade">svg.library</a> и как он используется
+Сам <a href="https://github.com/bonkalol/blinnikov-jade-sass/blob/master/dev/jade/meta/svg.jade">svg-library</a> и как он используется
 <a href="https://github.com/bonkalol/blinnikov-jade-sass/blob/master/dev/jade/index.jade">здесь</a>.
 
 
@@ -150,27 +152,43 @@ Jade скомпилированный в HTML, и минифицированны
 	stylish = require('jshint-stylish'),
 	imagemin = require('gulp-imagemin'),
 	pngquant = require('imagemin-pngquant'),
-	spritesmith = require('gulp.spritesmith');
+	spritesmith = require('gulp.spritesmith'),
+	colors = require('colors'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload;
 
 ----------
+
+### gulp start
+
+Gulp старт запустит browserSync и gulp watch.
+
+### Concat
 
 Js Concat , сначала подключается jquery, потом third-party скрипты, а потом только наш main.js
 в котором находится написанный нами код
 
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-concat.png" alt="" style="max-width: 100%;">
 
-SASS Таск
+### SASS Таск
 
 В Sass таск уже интегрирован CSS Autoprefixer. Вы можете выставить браузеры под какие надо добавлять префиксы и забыть про то, что такое префиксы.
 Так же можно изменить стиль исходного CSS.
 
 <img src="http://blinnikovbogdan.ru/QSTemplate/images/gulp-sass.png" alt="" style="max-width: 100%">
 
-Sprite
+### Sprite
 
 Будут браться все .png файлы из dev/img/sprite/ , собираться в один файл production/img/sprite.png и создавать на основе dev/scss/project/_sprite.scss
 
 ----------
+
+### Release 1.2.0
+
+- Добавлен browserSync
+- Добавлена нормальная обработка jade/sass ошибок
+- При сейве js файлов теперь вызывается jshint и сканит все файлы
+- В базовые конфиги добавлены некоторые переменные
 
 ### Release 1.1.0
 
