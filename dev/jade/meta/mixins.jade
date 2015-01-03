@@ -1,28 +1,24 @@
+include configs
+
+mixin head()
+	//- HEAD
+	title= configs.title
+	link(href='' + configs.css rel='stylesheet')
+
+
 //- Head Mixin with OpenGraph
-mixin OGhead(pagetitle, ogtitle, ogurl, ogimg, ogloc, ogdesc, csslink)
+mixin OGhead()
 	meta(charset="utf-8")
 	//- Open Graph Meta
-	meta(property="og:title" content=ogtitle)
-	meta(property="og:url" content=ogurl)
-	meta(property="og:image" content=ogimg)
-	meta(property="og:locale" content=ogloc)
-	meta(property="og:description" content=ogdesc)
+	meta(property="og:title" content='' + OGmeta.title)
+	meta(property="og:url" content='' + OGmeta.url)
+	meta(property="og:image" content='' + OGmeta.image)
+	meta(property="og:locale" content='' + OGmeta.locale)
+	meta(property="og:locale:alternate" content='' + OGmeta.locale)
+	meta(property="og:description" content='' + OGmeta.localeAlt)
+	meta(property="og:site_name" content='' + OGmeta.siteName)
 	//- /OG meta end
 
-	title= pagetitle
-
-
-	//- Links
-	//- link(href='http://fonts.googleapis.com/css?family=Roboto:400,500,100&amp;subset=latin,cyrillic' rel='stylesheet')
-	link(href=csslink rel='stylesheet')
-
-
-
-//- Simple head mixin
-mixin head(pagetitle ,csslink)
-	meta(charset="utf-8")
-	title= pagetitle
-	link(href='production/assets/css/main.css' rel='stylesheet')
 
 
 //- Seo Head
@@ -31,24 +27,6 @@ mixin headSEO(desc, tags, author)
 	meta(name="keywords" content=tags)
 	meta(name="author" content=author)
 
-
-//- Twitter card
-mixin twitterHead(cardType, siteURL, title, desc, img, siteTwitter, creatorTwitter)
-	meta(name="twitter:card" content=cardType)
-	meta(name="twitter:url" content=siteURL)
-	meta(name="twitter:title" content=title)
-	meta(name="twitter:description" content=desc)
-	meta(name="twitter:image" content=img)
-	meta(name="twitter:site" content=siteTwitter)
-	meta(name="twitter:creator" content=creatorTwitter)
-
 //- Responsive viewport
 mixin responsiveMeta()
-	meta(name="viewport" content="width=device-width; initial-scale=1.0")
-
-
-
-
-//- script
-mixin script(scriptSrc)
-	script(src=scriptSrc)
+	meta(name="viewport" content="width=device-width, initial-scale=1")

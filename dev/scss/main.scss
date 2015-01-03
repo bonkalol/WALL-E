@@ -1,6 +1,7 @@
 @import 'config';
 
 // meta
+@import 'meta/funcLib';
 @import 'meta/mixins';
 @import 'meta/variables';
 @import 'meta/silent.classes';
@@ -13,24 +14,16 @@
 @import 'base/base';
 
 // project
-@import 'project/class.lib';
 @import 'project/sprite';
+@import 'project/class.lib';
 // project items
-@import 'project/items/header';
-@import 'project/items/nav';
-@import 'project/items/footer';
+@import 'project/modules/layout/layout';
+
 // project pages
-@import 'project/pages/index';
-
-
+@import 'project/modules/pages/index';
 
 // cosmetic
 @import 'cosmetic/animation';
-@import 'cosmetic/cosmetic';
-
-
-// third-party css
-@import 'third-party/jelect';
 
 // cosmetic responsive
 @import 'cosmetic/responsive';

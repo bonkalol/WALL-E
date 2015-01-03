@@ -1,17 +1,6 @@
-doctype html
+extends layouts/default
 
-include meta/mixins
-include meta/variables
-include meta/svg-library
+block content
+	h1 Based on QSTemplate
 
-html
-	head
-		+OGhead('QSTemplate Title' ,'QSTemplate OG Title', 'QSTemplate Url', 'QSTempalte Image', 'QSTemplate Location', 'QSTemplate Description', 'css/main.css')
-		+responsiveMeta()
-	body
-		//- include partials/header
-			include partials/nav
-		h1 QSTemplate based on Gulp!
-
-		//- include partials/footer
-		+script('js/main.js')
+block scripts

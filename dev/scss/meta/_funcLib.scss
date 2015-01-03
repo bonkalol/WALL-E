@@ -1,0 +1,3 @@
+@function calcProcent($value, $defaultValue) {
+	@return ($value / $defaultValue) * 100%;
+}

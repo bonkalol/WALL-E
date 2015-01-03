@@ -19,7 +19,17 @@ var gulp = require('gulp'),
 	spritesmith = require('gulp.spritesmith'),
 	colors = require('colors'),
 	browserSync = require('browser-sync'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	newer = require('gulp-newer'),
+	gutil = require('gulp-util');
+
+/* ==================================
+
+DEFAULTS
+
+===================================== */
+var isProduction = false;
+
 
 /* ==================================
 
@@ -76,6 +86,14 @@ function log(error) {
 
 };
 
+function changeEvent(event) {
+
+	console.log(
+		'[watcher] File ' + event.path.replace(/.*(?=assets)/,'') + ' was ' + event.type + ', compiling...'
+	);
+
+}
+
 /* ==================================
 
 GULP LOADED TASKS
@@ -101,7 +119,9 @@ gulp.task('jade', function() {
 gulp.task('sass', function () {
 	return gulp.src('dev/scss/main.scss')
 		.pipe(sass({
-			style: 'compact'
+			style: 'expanded',
+			sourcemap: true,
+			sourcemapPath: 'production/css/source'
 		}))
 		.on('error', log)
 		.pipe(autoprefixer({
@@ -115,10 +135,12 @@ gulp.task('sass', function () {
 
 // Concat all JS files into production/js/main.js
 gulp.task('concat', function() {
-	gulp.src(['./dev/js/jquery-2.1.1.min.js','./dev/js/third-party/*.js', './dev/js/main.js'])
-		.pipe(concat('main.js'))
+	gulp.src(['./dev/js/jquery-2.1.1.min.js','./dev/js/third-party/*.js', './dev/js/partials/*.js', './dev/js/main.js'])
+		.pipe(newer('./production/js/'))
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish))
+		.pipe(concat('main.js'))
+		.pipe(isProduction ? uglify() : gutil.noop())
 		.pipe(gulp.dest('./production/js/'));
 });
 
@@ -139,7 +161,8 @@ gulp.task('jshint', function() {
 
 
 gulp.task('imagemin', function () {
-	return gulp.src('dev/img/*.{png,jpg}')
+	return gulp.src('dev/img/**/*.+(png|jpg)')
+		.pipe(newer('production/img'))
 		.pipe(imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
@@ -150,7 +173,7 @@ gulp.task('imagemin', function () {
 
 // Sprite Smith
 gulp.task('sprite', function () {
-	gulp.src('dev/img/sprite/*.png').pipe(spritesmith({
+	gulp.src('dev/img/sprite/*.+(png)').pipe(spritesmith({
 		imgName: 'sprite.png',
 		cssName: '../../dev/scss/project/_sprite.scss',
 		imgPath: '../img/sprite.png'
@@ -162,7 +185,7 @@ gulp.task('sprite', function () {
 
 // Copy Fonts
 gulp.task('copyFonts', function(){
-	return gulp.src('dev/font/*.{svg,eot,woff,woff2,otf,ttf}')
+	return gulp.src('dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)')
 	.pipe(gulp.dest('production/font/'));
 });
 
@@ -177,26 +200,38 @@ gulp.task('watch', function () {
 	// scss watcher
 	watch('dev/scss/**/*.scss', function (files, cb) {
 		gulp.start('sass', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 	// jade watcher
 	watch('dev/jade/*.jade', function (files, cb) {
 		gulp.start('jade', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 	// js watcher
 	watch('dev/js/**/*.js', function (files, cb) {
 		gulp.start('concat', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 	// fonts watcher
-	watch('dev/font/*', function (files, cb) {
+	watch('dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)', function (files, cb) {
 		gulp.start('copyFonts', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 	// sprite watcher
 	watch('dev/img/sprite/*.png', function (files, cb) {
 		gulp.run('sprite', 'sass');
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 	// minimage watcher
-	watch('dev/img/*', function(files, cb) {
+	watch('dev/img/**/*', function(files, cb) {
 		gulp.start('imagemin', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
 	});
 
 });
