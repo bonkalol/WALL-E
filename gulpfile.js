@@ -21,7 +21,10 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
 	newer = require('gulp-newer'),
-	gutil = require('gulp-util');
+	gutil = require('gulp-util'),
+	cssmin = require('gulp-cssmin'),
+	prettify = require('gulp-html-prettify'),
+	clean = require('gulp-clean');
 
 /* ==================================
 
@@ -39,12 +42,14 @@ GULP TASKS
 
 gulp.task('default', function() {
 	gulp.start([
+		'clean',
 		'jade',
 		'sass',
-		'jshint',
 		'concat',
-		'uglify',
-		'imagemin'
+		'copyLibs',
+		'copyFonts',
+		'imagemin',
+		'start'
 		]);
 });
 
@@ -52,7 +57,7 @@ gulp.task('compile', function() {
 	gulp.start([
 		'jade',
 		'sass',
-		'concat',
+		'concat'
 		]);
 });
 
@@ -112,6 +117,17 @@ gulp.task('jade', function() {
 	gulp.src('./dev/jade/*.jade')
 		.pipe(jade())
 		.on('error', log)
+		.pipe(prettify({indent_char: '	', indent_size: 1}))
+		.pipe(gulp.dest('./production/'))
+		.pipe(reload({stream: true}));
+});
+
+gulp.task('jadeNewer', function() {
+	gulp.src('./dev/jade/*.jade')
+		.pipe(newer('./production/'))
+		.pipe(jade())
+		.on('error', log)
+		.pipe(prettify({indent_char: '	', indent_size: 1}))
 		.pipe(gulp.dest('./production/'))
 		.pipe(reload({stream: true}));
 });
@@ -129,6 +145,7 @@ gulp.task('sass', function () {
 			browsers: ['ie 10', 'last 2 versions'],
 			cascade: true
 		}))
+		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(gulp.dest('production/css/'))
 		.pipe(reload({stream: true}));
 });
@@ -144,19 +161,11 @@ gulp.task('concat', function() {
 		.pipe(gulp.dest('./production/js/'));
 });
 
-var uglify = require('gulp-uglifyjs');
-
-gulp.task('uglify', function() {
-	gulp.src('production/js/main.js')
-		.pipe(uglify())
-		.pipe(gulp.dest('production/js/min'));
-});
-
 
 gulp.task('jshint', function() {
 	return gulp.src('./dev/js/main.js')
 		.pipe(jshint())
-		.pipe(jshint.reporter(stylish));
+		.pipe(jshint.reporter());
 });
 
 
@@ -183,10 +192,27 @@ gulp.task('sprite', function () {
 });
 
 
-// Copy Fonts
-gulp.task('copyFonts', function(){
+// copy assets
+gulp.task('copyFonts', function() {
 	return gulp.src('dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)')
 	.pipe(gulp.dest('production/font/'));
+});
+
+
+gulp.task('copyLibs', function() {
+	return gulp.src('dev/js/libs/**/*.js')
+	.pipe(gulp.dest('production/js/libs'));
+});
+
+
+
+// clean production
+gulp.task('clean', function() {
+
+	return gulp.src('production/', {read: false, force: true})
+	.pipe(clean())
+	.on('error', log);
+
 });
 
 
@@ -205,6 +231,11 @@ gulp.task('watch', function () {
 	});
 	// jade watcher
 	watch('dev/jade/*.jade', function (files, cb) {
+		gulp.start('jadeNewer', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
+	});
+	watch(['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade'], function (files, cb) {
 		gulp.start('jade', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
@@ -212,6 +243,12 @@ gulp.task('watch', function () {
 	// js watcher
 	watch('dev/js/**/*.js', function (files, cb) {
 		gulp.start('concat', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
+	});
+	// js libs watcher
+	watch('dev/js/libs/**/*.js', function (files, cb) {
+		gulp.start('copyLibs', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
