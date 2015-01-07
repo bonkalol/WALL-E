@@ -74,3 +74,28 @@ The provided mixins are intended to be used with the array-like variables
   @include sprite($icon-email);
 }
 */
+.debug {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.debug_grid {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.debug_grid-column {
+  width: 5.66667%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+}

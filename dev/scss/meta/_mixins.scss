@@ -102,3 +102,10 @@
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
+
+@mixin fixedFull() {
+	position: fixed;
+	@include size(100%);
+	left: 0;
+	top: 0;
+}

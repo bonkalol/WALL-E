@@ -14,13 +14,4 @@
 @import 'base/base';
 
 // project
-@import 'project/sprite';
-@import 'project/class.lib';
-// project items
-@import 'project/modules/layout/layout';
-
-// project pages
-@import 'project/modules/pages/index';
-
-// cosmetic
-@import 'project/modules/cosmetic/animation';
+@import 'project/project';

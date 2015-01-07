@@ -23,6 +23,10 @@ html
 		block footer
 			include ../partials/footer
 
+		if layoutSetters.dev
+			include ../partials/debug
+
+	block additionalCSS
 
 	block script
 		script(src='' + configs.js async)
