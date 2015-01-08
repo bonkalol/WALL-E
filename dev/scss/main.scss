@@ -1,17 +1,18 @@
 @import 'config';
 
 // meta
-@import 'meta/funcLib';
-@import 'meta/mixins';
-@import 'meta/variables';
-@import 'meta/silent.classes';
+@import 'meta/funcLib',
+		'meta/mixins',
+		'meta/variables',
+		'meta/mq',
+		'meta/silent.classes';
 
 
 
 // base
-@import 'base/reset';
-@import 'base/font';
-@import 'base/base';
+@import 'base/reset',
+		'base/font',
+		'base/base';
 
 // project
 @import 'project/project';

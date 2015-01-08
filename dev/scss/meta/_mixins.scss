@@ -67,7 +67,7 @@
 	}
 
 	&:-moz-placeholder {
-		color: $color;  
+		color: $color;	
 	}
 
 	&::-moz-placeholder {
@@ -96,16 +96,24 @@
 }
 
 
-@mixin alignCenter() {
+@mixin alignCenter {
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 }
 
-@mixin fixedFull() {
+@mixin fixedFull {
 	position: fixed;
 	@include size(100%);
 	left: 0;
 	top: 0;
+}
+
+@mixin clearfix {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
 }
