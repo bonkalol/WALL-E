@@ -43,6 +43,7 @@
     "gulp-html-prettify": "0.0.1",
     "gulp-clean": "~0.3.1",
     "gulp-notify": "~2.1.0",
-    "gulp-duration": "0.0.0"
+    "gulp-duration": "0.0.0",
+    "require-dir": "~0.1.0"
   }
 }
