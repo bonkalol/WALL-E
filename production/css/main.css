@@ -102,7 +102,7 @@ The provided mixins are intended to be used with the array-like variables
   height: 100%;
 }
 .debug_grid-column {
-  width: 5.66667%;
+  width: 7.33333%;
   height: 100%;
   background-color: rgba(255, 0, 0, 0.5);
 }

@@ -41,6 +41,8 @@
     "gulp-util": "~3.0.1",
     "gulp-cssmin": "~0.1.6",
     "gulp-html-prettify": "0.0.1",
-    "gulp-clean": "~0.3.1"
+    "gulp-clean": "~0.3.1",
+    "gulp-notify": "~2.1.0",
+    "gulp-duration": "0.0.0"
   }
 }

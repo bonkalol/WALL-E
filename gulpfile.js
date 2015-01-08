@@ -24,7 +24,9 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	cssmin = require('gulp-cssmin'),
 	prettify = require('gulp-html-prettify'),
-	clean = require('gulp-clean');
+	clean = require('gulp-clean'),
+	notify = require('gulp-notify'),
+	duration = require('gulp-duration');
 
 /* ==================================
 
@@ -48,7 +50,7 @@ gulp.task('default', function() {
 		'concat',
 		'copyLibs',
 		'copyFonts',
-		'imagemin',
+		'imagemin:all',
 		'start'
 		]);
 });
@@ -115,50 +117,67 @@ gulp.task('browser-sync', function() {
 
 gulp.task('jade', function() {
 	gulp.src('./dev/jade/*.jade')
+		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
 		.pipe(jade())
+		.pipe(duration('Finished jade task in'))
 		.on('error', log)
 		.pipe(prettify({indent_char: '	', indent_size: 1}))
+		.pipe(duration('Finished prettify task in'))
 		.pipe(gulp.dest('./production/'))
-		.pipe(reload({stream: true}));
+		.pipe(reload({stream: true}))
+		.pipe(notify('File created: production/<%= file.relative %>! Jade Finished.'));
 });
 
 gulp.task('jadeNewer', function() {
 	gulp.src('./dev/jade/*.jade')
 		.pipe(newer('./production/'))
+		.pipe(duration('Finished jade task in'))
+		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
 		.pipe(jade())
 		.on('error', log)
 		.pipe(prettify({indent_char: '	', indent_size: 1}))
+		.pipe(duration('Finished prettify task in'))
 		.pipe(gulp.dest('./production/'))
-		.pipe(reload({stream: true}));
+		.pipe(reload({stream: true}))
+		.pipe(notify('File created: production/<%= file.relative %>! Jade Finished.'));
 });
 
 gulp.task('sass', function () {
 	return gulp.src('dev/scss/main.scss')
+		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
 		.pipe(sass({
 			style: 'expanded',
 			sourcemap: true,
 			sourcemapPath: 'production/css/source'
 		}))
+		.pipe(duration('Finished SASS task in'))
 		.on('error', log)
 		.pipe(autoprefixer({
 			// More about browser: https://github.com/postcss/autoprefixer#browsers
 			browsers: ['ie 10', 'last 2 versions'],
 			cascade: true
 		}))
+		.pipe(duration('Finished Autoprefixer task in'))
 		.pipe(isProduction ? cssmin() : gutil.noop())
+		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
 		.pipe(gulp.dest('production/css/'))
-		.pipe(reload({stream: true}));
+		.pipe(reload({stream: true}))
+		.pipe(notify('File created: production/css/<%= file.relative %>! SASS Finished.'));
 });
 
 // Concat all JS files into production/js/main.js
 gulp.task('concat', function() {
 	gulp.src(['./dev/js/jquery-2.1.1.min.js','./dev/js/third-party/*.js', './dev/js/partials/*.js', './dev/js/main.js'])
 		.pipe(newer('./production/js/'))
+		.pipe(notify('File changed: dev/js/<%= file.relative %>! Starting Concat.'))
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish))
 		.pipe(concat('main.js'))
+		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
-		.pipe(gulp.dest('./production/js/'));
+		.pipe(isProduction ? duration('Finished Uglify task in') : gutil.noop())
+		.pipe(gulp.dest('./production/js/'))
+		.pipe(notify('File created: production/js/<%= file.relative %>! Concat Finished'));
 });
 
 
@@ -178,6 +197,18 @@ gulp.task('imagemin', function () {
 			use: [pngquant()]
 		}))
 		.pipe(gulp.dest('production/img'));
+});
+
+gulp.task('imagemin:all', function() {
+
+	return gulp.src('dev/img/**/*.+(png|jpg)')
+		.pipe(imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngquant()]
+		}))
+		.pipe(gulp.dest('production/img'));
+
 });
 
 // Sprite Smith
@@ -209,7 +240,7 @@ gulp.task('copyLibs', function() {
 // clean production
 gulp.task('clean', function() {
 
-	return gulp.src('production/', {read: false, force: true})
+	return gulp.src(['production/css', 'production/*.html', 'production/js', 'production/img', 'production/font', 'production/data'], {read: false, force: true})
 	.pipe(clean())
 	.on('error', log);
 
