@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	notify = require('gulp-notify'),
 	duration = require('gulp-duration'),
 	log = require('./errorHandler'),
+	colors = require('colors'),
 	isProduction = require('./configs').isProduction;
 
 
