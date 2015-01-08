@@ -7,10 +7,8 @@ GULP REQUIRE
 ===================================== */
 
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
 	jade = require('gulp-jade'),
 	watch = require('gulp-watch'),
-	autoprefixer = require('gulp-autoprefixer'),
 	copy = require('gulp-copy'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglifyjs'),
@@ -22,7 +20,6 @@ var gulp = require('gulp'),
 	reload = browserSync.reload,
 	newer = require('gulp-newer'),
 	gutil = require('gulp-util'),
-	cssmin = require('gulp-cssmin'),
 	prettify = require('gulp-html-prettify'),
 	clean = require('gulp-clean'),
 	notify = require('gulp-notify'),
@@ -142,28 +139,6 @@ gulp.task('jadeNewer', function() {
 		.pipe(notify('File created: production/<%= file.relative %>! Jade Finished.'));
 });
 
-gulp.task('sass', function () {
-	return gulp.src('dev/scss/main.scss')
-		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
-		.pipe(sass({
-			style: 'expanded',
-			sourcemap: true,
-			sourcemapPath: 'production/css/source'
-		}))
-		.pipe(duration('Finished SASS task in'))
-		.on('error', log)
-		.pipe(autoprefixer({
-			// More about browser: https://github.com/postcss/autoprefixer#browsers
-			browsers: ['ie 10', 'last 2 versions'],
-			cascade: true
-		}))
-		.pipe(duration('Finished Autoprefixer task in'))
-		.pipe(isProduction ? cssmin() : gutil.noop())
-		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
-		.pipe(gulp.dest('production/css/'))
-		.pipe(reload({stream: true}))
-		.pipe(notify('File created: production/css/<%= file.relative %>! SASS Finished.'));
-});
 
 // Concat all JS files into production/js/main.js
 gulp.task('concat', function() {
