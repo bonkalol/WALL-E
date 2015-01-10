@@ -8,16 +8,16 @@ SCSS variables are information about icon's compiled state, stored under its ori
 The large array-like variables contain all information about a single icon
 $icon-home: x y offset_x offset_y width height total_width total_height image_path;
 */
-$grunt-logo-x: 0px;
-$grunt-logo-y: 0px;
-$grunt-logo-offset-x: 0px;
-$grunt-logo-offset-y: 0px;
-$grunt-logo-width: 512px;
-$grunt-logo-height: 512px;
-$grunt-logo-total-width: 512px;
-$grunt-logo-total-height: 512px;
-$grunt-logo-image: '../img/sprite.png';
-$grunt-logo: 0px 0px 0px 0px 512px 512px 512px 512px '../img/sprite.png';
+$sass-logo-x: 0px;
+$sass-logo-y: 0px;
+$sass-logo-offset-x: 0px;
+$sass-logo-offset-y: 0px;
+$sass-logo-width: 512px;
+$sass-logo-height: 384px;
+$sass-logo-total-width: 512px;
+$sass-logo-total-height: 384px;
+$sass-logo-image: '../img/sprite.png';
+$sass-logo: 0px 0px 0px 0px 512px 384px 512px 384px '../img/sprite.png';
 
 /*
 The provided mixins are intended to be used with the array-like variables

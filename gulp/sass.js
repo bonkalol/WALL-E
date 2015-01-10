@@ -11,14 +11,13 @@ var gulp = require('gulp'),
 	colors = require('colors'),
 	isProduction = require('./configs').isProduction;
 
-
 gulp.task('sass', function () {
 	return gulp.src('dev/scss/main.scss')
 		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
 		.pipe(sass({
 			style: 'expanded',
 			sourcemap: true,
-			sourcemapPath: 'production/css/source'
+			sourcemapPath: 'production/css/'
 		}))
 		.pipe(duration('Finished SASS task in'))
 		.on('error', log)

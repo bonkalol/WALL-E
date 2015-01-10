@@ -1,53 +1,60 @@
 var gulp = require('gulp'),
 	changeEvent = require('./changeEvent'),
-	watch = require('gulp-watch');
+	watch = require('gulp-watch'),
+	configs = require('./configs'),
+	paths = configs.paths,
+	watch = paths.watchPaths;
+
 
 
 gulp.task('watch', function () {
+	console.log(typeof watch.scss);
 	// scss watcher
-	watch('dev/scss/**/*.scss', function (files, cb) {
+	watch(watch.scss, function (files, cb) {
 		gulp.start('sass', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
 	// jade watcher
-	watch('dev/jade/*.jade', function (files, cb) {
+	watch(watch.jade, function (files, cb) {
 		gulp.start('jadeNewer', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
-	watch(['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade'], function (files, cb) {
+	watch(watch.jadePartials, function (files, cb) {
 		gulp.start('jade', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
 	// js watcher
-	watch('dev/js/**/*.js', function (files, cb) {
+	watch(watch.js, function (files, cb) {
 		gulp.start('concat', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
-	// js libs watcher
-	watch('dev/js/libs/**/*.js', function (files, cb) {
-		gulp.start('copyLibs', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
-	});
-	// fonts watcher
-	watch('dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)', function (files, cb) {
-		gulp.start('copyFonts', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
-	});
 	// sprite watcher
-	watch('dev/img/sprite/*.png', function (files, cb) {
+	watch(watch.sprite, function (files, cb) {
 		gulp.run('sprite', 'sass');
 	}).on('change', function(event) {
 		changeEvent(event)
 	});
 	// minimage watcher
-	watch('dev/img/**/*', function(files, cb) {
+	watch(watch.images, function(files, cb) {
 		gulp.start('imagemin', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
+	});
+
+	// stuff watcher
+	// js libs watcher
+	watch(watch.jsLibs, function (files, cb) {
+		gulp.start('copyLibs', cb);
+	}).on('change', function(event) {
+		changeEvent(event)
+	});
+	// fonts watcher
+	watch(watch.fonts, function (files, cb) {
+		gulp.start('copyFonts', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});

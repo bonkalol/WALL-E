@@ -6,8 +6,7 @@ gulp.task('default', function() {
 		'jade',
 		'sass',
 		'concat',
-		'copyLibs',
-		'copyFonts',
+		'copyStuff',
 		'imagemin:all',
 		'start'
 		]);
@@ -27,6 +26,19 @@ gulp.task('start', function() {
 	gulp.start([
 		'browser-sync',
 		'watch'
+		]);
+
+});
+
+
+gulp.task('copyStuff', function() {
+
+	gulp.start([
+		'copyFonts',
+		'copyLibs',
+		'copyAssets',
+		'copyData',
+		'copyStatic'
 		]);
 
 });
