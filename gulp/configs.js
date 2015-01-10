@@ -23,7 +23,7 @@ module.exports = {
 			jsLibs: 'production/js/libs',
 			img: 'production/img',
 			font: 'production/font/',
-			static: 'proudction/static',
+			static: 'proudction/',
 			data: 'production/data',
 			assets: 'production/assets'
 		},
@@ -36,7 +36,10 @@ module.exports = {
 			jsLibs: 'dev/js/libs/**/*.js',
 			fonts: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			sprite: 'dev/img/sprite/*.png',
-			images: 'dev/img/**/*'
+			images: 'dev/img/**/*',
+			static: 'dev/static/**/*',
+			data: 'dev/data/**/*',
+			assets: 'dev/assets/**/*'
 		}
 
 	}
