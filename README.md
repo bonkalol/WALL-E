@@ -1,5 +1,4 @@
 # QSTemplate
-----------
 
 ## En
 
@@ -128,9 +127,11 @@ Example 1. Folder tree.
 
 ## Navigation
 
-1. Quick Start
-1.1. Simple Way
-1.2. Advance way
+1. <a href="#quick-start">Quick Start</a>
+
+  1.1. <a href="#simple-way">Simple Way</a>
+
+  1.2. <a href="#advance-way">Advance way<a>
 
 ### Quick start
 
