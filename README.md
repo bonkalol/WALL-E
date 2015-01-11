@@ -328,6 +328,10 @@ Contain some specific styles for the pages.
 
 In <code>gulpfile</code> required all tasks. Tasks are located in <code>gulp</code> folder
 
+#### gulp/configs.js
+
+In this file located all configs, like paths, autoprefixer browsers and other stuff like that.
+
 #### gulp/sass.js
 
 Example of task.
@@ -386,8 +390,12 @@ So
 | <code><strong>copyStuff</strong></code> | will copy <code>assets</code>, <code>static</code>, <code>data</code> ... |
 
 
+### Possible problems
 
+If u are using windows, and you can't install dependencies using <code>npm install</code>,
+you should install all dependencies by yourself, like <code>npm install gulp@~3.8.9</code> ... Or u can copy and paste in your terminal all npm installs from <a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">this</a> gist.
 
+Gulp not watching empty folders. that's not my fault, this problem are still actual. Gulp watch <a href="https://github.com/floatdrop/gulp-watch/issues/56">issue 56</a>.
 
 ## Ru
 
