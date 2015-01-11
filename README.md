@@ -92,7 +92,7 @@ Example 1. Folder tree.
 			├── third-party
 				├── _slick.scss
 			├── _config.scss
-			├── main.scss
+			├── <span style="color: #00933b;">main.scss<span>
 		├── static
 			├── search.html
 			├── cars.html
@@ -124,6 +124,11 @@ Example 1. Folder tree.
 		├── index.html ( index.jade )
 	├── gulp
 		├── gulpconfigs
+	├── .bowerrc
+	├── .gitignore
+	├── gulpfile.js
+	├── package.json
+	├── README.md
 
 ## Navigation
 
@@ -144,7 +149,7 @@ Download archive from blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp and run "npm
 Open your terminal and run
 
 	git clone https://github.com/bonkalol/QSTemplate-gulp.git project
-	rm -rf .git
+	rm -rf .git && rm readme.md
 	git init
 	git commit -m "init commit"
 	git remote add origin https://github.com/username/reponame.git
