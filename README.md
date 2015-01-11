@@ -6,9 +6,9 @@
 
 QSTemplate it's a project template for quick start your web-project. it's based on 3 powerfull components.
 
-1. Jade
-2. SASS (SCSS)
-3. Gulp
+1. <code>Jade</code
+2. <code>SASS (SCSS)</code
+3. <code>Gulp</code
 
 ## Navigation
 
@@ -167,25 +167,25 @@ An explanation of what is happening here:
 #### dev/assets/
 
 Assets are folder which must contain third-party js, font, css and other stuff... All that is contained in this folder
-will be copied in production/assets/ folder.
+will be copied in <code>production/assets/</code> folder.
 
 #### dev/data/
 
 Data are folder which must contain data files, like .json. ll that is contained in this folder
-will be copied in production/data/ folder.
+will be copied in <code>production/data/</code> folder.
 
 #### dev/font/
 
-I think there is no need to explain. All files in this folder will be copied in production/font/ folder.
+I think there is no need to explain. All files in this folder will be copied in <code>production/font/</code> folder.
 
 #### dev/img/
 
 Folder for images, all images in this folder will be minified and minified versions of this images will be copied in
-production/img/
+<code>production/img/</code>
 
 #### dev/img/sprite
 
-Folder for sprite, image in this folder will be generated into production/img/sprite.png
+Folder for sprite, image in this folder will be generated into <code>production/img/sprite.png</code>
 
 #### dev/jade
 
@@ -201,35 +201,35 @@ Contain all configs and helpers like mixins and vars.
 
 #### dev/jade/partials
 
-Contain all jade partials, like nav.jade/head.jade...
+Contain all jade partials, like <code>nav.jade</code> / <code>head.jade</code>...
 
 #### dev/js
 
-Javascripts ^_^. main.js is a main file.
+Javascripts ^_^. <code>main.js</code> is a main file.
 
 #### dev/js/partials
 
-All .js files in this folder will be combined into main.js. Js files into this folder not independent files,
+All .js files in this folder will be combined into <code>main.js</code>. Js files into this folder not independent files,
 it's just a partials of main.js.
 
 #### dev/js/third-party
 
-Third-party scripts will be combined into main.js.
+<code>Third-party</code> scripts will be combined into main.js.
 
 #### dev/js/libs
 
-Files in libs folder will be copied in production/js/libs
+Files in libs folder will be copied in <code>production/js/libs</code>
 
 #### dev/static
 
 This folder must contain .html files, if u don't wanna use Jade, write your html in this folder,
-this files will be copied in production/
+this files will be copied in <code>production/</code>
 
 ### dev/scss
 
 Еhis is a big topic, so it can be considered subsection.
 
-_config.scss - contain all main configs. ( example 2. )
+<code>_config.scss</code> - contain all main configs. ( example 2. )
 
 Example 2. Configs.
 
@@ -238,15 +238,15 @@ Example 2. Configs.
 	$borderBox: true;
 	$fontSmooth: true;
 
-main.scss - main file which include all imports.
+<code>main.scss</code> - main file which include all imports.
 
 #### base
 
-base folder contain files like a _reset.scss, _font.scss, _base.scss, _custom-reset.scss.
+base folder contain files like a <code>_reset.scss</code>, <code>_font.scss</code>, <code>_base.scss</code>, <code>_custom-reset.scss</code>.
 
 #### meta
 
-meta folder contain helpers and var. My lovely helper is a _mq.scss.
+meta folder contain helpers and var. My lovely helper is a <code>_mq.scss</code>.
 
 <code>_mq.scss</code> it's a mixin to write mediaqueris much easier. ( example 3. )
 
@@ -269,7 +269,7 @@ Example 3. MQ mixin in action.
 #### project/components
 
 This folder contain modules, like buttons, forms, inputs... Main file in this folder are _components.scss.
-All components must be imported in _components.scss.
+All components must be imported in <code>_components.scss</code>.
 
 	@import
 		'development',
@@ -280,7 +280,7 @@ All components must be imported in _components.scss.
 
 #### project/layout
 
-Contain layout items, such like a footer, header... Main file in this folder _layout.scss.
+Contain layout items, such like a footer, header... Main file in this folder <code>_layout.scss</code>.
 
 #### project/pages
 
@@ -288,11 +288,11 @@ Contain some specific styles for the pages.
 
 #### project
 
-_class.lib.scss contains classes that will be used frequently.
+<code>_class.lib.scss</code> contains classes that will be used frequently.
 
-_project.scss contain all imports from this folder.
+<code>_project.scss</code> contain all imports from this folder.
 
-_sprite.scss contain generated scss code to create sprite mixin.
+<code>_sprite.scss</code> contain generated scss code to create sprite mixin.
 
 
 
