@@ -17,7 +17,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('clean', function() {
 
-	return gulp.src(['production/css', 'production/*.html', 'production/js', 'production/img', 'production/font', 'production/data'], {read: false, force: true})
+	return gulp.src(['production'], {read: false, force: true})
 	.pipe(clean())
 	.on('error', log);
 

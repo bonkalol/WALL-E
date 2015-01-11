@@ -22,7 +22,7 @@ gulp.task('jade', function() {
 		.pipe(duration('Finished prettify task in'))
 		.pipe(gulp.dest(paths.destPaths.html))
 		.pipe(reload({stream: true}))
-		.pipe(notify('File created: ' + paths.destPaths.html + ' <%= file.relative %>! Jade Finished.'));
+		.pipe(notify('File created: ' + paths.destPaths.html + '<%= file.relative %>! Jade Finished.'));
 });
 
 gulp.task('jadeNewer', function() {

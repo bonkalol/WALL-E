@@ -44,8 +44,8 @@ table {
 }
 
 body {
-  font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
@@ -87,9 +87,11 @@ The provided mixins are intended to be used with the array-like variables
   top: 0;
 }
 .debug_grid {
+  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;

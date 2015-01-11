@@ -16,7 +16,7 @@ gulp.task('watch', function () {
 	});
 	// jade watcher
 	watch(watchPath.jade, function (files, cb) {
-		gulp.start('jadeNewer', cb);
+		gulp.start('jade', cb);
 	}).on('change', function(event) {
 		changeEvent(event)
 	});

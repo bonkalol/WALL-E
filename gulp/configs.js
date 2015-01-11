@@ -15,7 +15,7 @@ module.exports = {
 	sass: {
 		style: 'expanded',
 		sourcemap: true
-	}
+	},
 
 	paths: {
 
@@ -26,9 +26,9 @@ module.exports = {
 			jsLibs: 'dev/js/libs/**/*.js',
 			images: 'dev/img/**/*.+(png|jpg)',
 			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
-			static: 'dev/static',
-			data: 'dev/data',
-			assets: 'dev/assets'
+			static: 'dev/static/**/*',
+			data: 'dev/data/**/*',
+			assets: 'dev/assets/**/*'
 		},
 
 		destPaths: {

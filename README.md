@@ -54,8 +54,9 @@ Example 1. Folder tree.
 
 	├── dev
 		├── assets
-			├── docs.rm
-			├── simple_headings.css
+			├── docs.md
+			├── css
+				├── simple_headings.css
 		├── data
 			├── data.json
 			├── autocomplete.json
@@ -151,8 +152,9 @@ Example 1. Folder tree.
 			├── background.png
 			├── background@retina.png
 		├── assets
-			├── docs.rm
-			├── simple_headings.css
+			├── docs.md
+			├── css
+				├── simple_headings.css
 		├── data
 			├── data.json
 			├── autocomplete.json
@@ -328,6 +330,8 @@ In <code>gulpfile</code> required all tasks. Tasks are located in <code>gulp</co
 
 #### gulp/sass.js
 
+Example of task.
+
 ```javascript
 gulp.task('sass', function () {
 	return gulp.src(paths.srcPaths.scss)
@@ -370,6 +374,14 @@ So
 6. Save file into dest
 7. Reload browserSync
 8. Notify you that Sass was completed
+
+#### Available gulp tasks
+
+| <code>default</code> | will clean <code>production</code> folder, compile all source files, and copy all assets. After that, watch and browserSync will start working |
+|----------|---|
+| <code>watch</code> | will watch on file changes |
+|----------|---|
+| <code>start | start watch and browserSync |
 
 
 

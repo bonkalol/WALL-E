@@ -28,13 +28,13 @@ gulp.task('sass', function () {
 		.pipe(autoprefixer({
 			// More about browser: https://github.com/postcss/autoprefixer#browsers
 			browsers: [
-				'Android >= <%= configsAutoprefixer.android %>',
-				'Chrome >= <%= configsAutoprefixer.chrome %>',
-				'Firefox >= <%= configsAutoprefixer.firefox %>',
-				'Explorer >= <%= configsAutoprefixer.ie %>',
-				'iOS >= <%= configsAutoprefixer.ios %>',
-				'Opera >= <%= configsAutoprefixer.opera %>',
-				'Safari >= <%= configsAutoprefixer.safari %>'
+				'Android >= ' + configsAutoprefixer.android,
+				'Chrome >= ' + configsAutoprefixer.chrome,
+				'Firefox >= ' + configsAutoprefixer.firefox,
+				'Explorer >= ' + configsAutoprefixer.ie,
+				'iOS >= ' + configsAutoprefixer.ios,
+				'Opera >= ' + configsAutoprefixer.opera,
+				'Safari >= ' + configsAutoprefixer.safari
 			],
 			cascade: true
 		}))
@@ -43,5 +43,5 @@ gulp.task('sass', function () {
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
 		.pipe(gulp.dest(paths.destPaths.css))
 		.pipe(reload({stream: true}))
-		.pipe(notify('File created: ' + paths.destPaths.css + '/<%= file.relative %>! SASS Finished.'));
+		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'));
 });
