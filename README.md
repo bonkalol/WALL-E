@@ -24,7 +24,9 @@ QSTemplate it's a project template for quick start your web-project. it's based 
 
 #### Simple way
 
-Download archive from blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp and run "npm install" in your terminal.
+Download archive from 
+<a href="http://blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp.zip">http://blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp</a> 
+and run "npm install" in your terminal.
 
 #### Advance way
 
