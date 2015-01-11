@@ -377,11 +377,11 @@ So
 
 #### Available gulp tasks
 
-| <code>default</code> | will clean <code>production</code> folder, compile all source files, and copy all assets. After that, watch and browserSync will start working |
+| <code>task</code> | description |
 |----------|---|
-| <code>watch</code> | will watch on file changes |
-|----------|---|
-| <code>start | start watch and browserSync |
+| <code><strong>default</strong></code> | will clean <code>production</code> folder, compile all source files, and copy all assets. After that, watch and browserSync will start working |
+| <code><strong>watch</strong></code> | will watch on file changes |
+| <code><strong>start</strong></code> | start watch and browserSync |
 
 
 
