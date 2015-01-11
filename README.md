@@ -1,5 +1,7 @@
 # QSTemplate
 
+<a href="#en">EN</a> or <a href="#ru">RU</a>
+
 ## En
 
 <a href="https://github.com/bonkalol/QSTemplate">Grunt</a> Or <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> version
