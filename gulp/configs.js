@@ -2,6 +2,21 @@ module.exports = {
 
 	isProduction: false,
 
+	autoprefixer: {
+		android: 4,
+		chrome: 36,
+		firefox: 31,
+		ie: 10,
+		ios: 6,
+		opera: 15,
+		safari: 7
+	},
+
+	sass: {
+		style: 'expanded',
+		sourcemap: true
+	}
+
 	paths: {
 
 		srcPaths: {

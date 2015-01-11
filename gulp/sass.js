@@ -9,27 +9,39 @@ var gulp = require('gulp'),
 	duration = require('gulp-duration'),
 	log = require('./errorHandler'),
 	colors = require('colors'),
-	isProduction = require('./configs').isProduction;
+	configs = require('./configs'),
+	configsSass = configs.sass,
+	configsAutoprefixer = configs.autoprefixer,
+	isProduction = configs.isProduction,
+	paths = configs.paths;
 
 gulp.task('sass', function () {
-	return gulp.src('dev/scss/main.scss')
+	return gulp.src(paths.srcPaths.scss)
 		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
 		.pipe(sass({
-			style: 'expanded',
-			sourcemap: true,
-			sourcemapPath: 'production/css/'
+			style: configsSass.style,
+			sourcemap: configsSass.sourcemap,
+			sourcemapPath: paths.destPaths.css
 		}))
 		.pipe(duration('Finished SASS task in'))
 		.on('error', log)
 		.pipe(autoprefixer({
 			// More about browser: https://github.com/postcss/autoprefixer#browsers
-			browsers: ['ie 10', 'last 2 versions'],
+			browsers: [
+				'Android >= <%= configsAutoprefixer.android %>',
+				'Chrome >= <%= configsAutoprefixer.chrome %>',
+				'Firefox >= <%= configsAutoprefixer.firefox %>',
+				'Explorer >= <%= configsAutoprefixer.ie %>',
+				'iOS >= <%= configsAutoprefixer.ios %>',
+				'Opera >= <%= configsAutoprefixer.opera %>',
+				'Safari >= <%= configsAutoprefixer.safari %>'
+			],
 			cascade: true
 		}))
 		.pipe(duration('Finished Autoprefixer task in'))
 		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
-		.pipe(gulp.dest('production/css/'))
+		.pipe(gulp.dest(paths.destPaths.css))
 		.pipe(reload({stream: true}))
-		.pipe(notify('File created: production/css/<%= file.relative %>! SASS Finished.'));
+		.pipe(notify('File created: ' + paths.destPaths.css + '/<%= file.relative %>! SASS Finished.'));
 });
