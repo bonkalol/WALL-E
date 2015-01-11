@@ -248,7 +248,7 @@ base folder contain files like a _reset.scss, _font.scss, _base.scss, _custom-re
 
 meta folder contain helpers and var. My lovely helper is a _mq.scss.
 
-_mq.scss it's a mixin to write mediaqueris much easier. ( example 3. )
+<code>_mq.scss</code> it's a mixin to write mediaqueris much easier. ( example 3. )
 
 Example 3. MQ mixin in action.
 
