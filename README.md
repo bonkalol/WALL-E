@@ -6,9 +6,9 @@
 
 QSTemplate it's a project template for quick start your web-project. it's based on 3 powerfull components.
 
-1. <code>Jade</code
-2. <code>SASS (SCSS)</code
-3. <code>Gulp</code
+1. <code>Jade</code>
+2. <code>SASS (SCSS)</code>
+3. <code>Gulp</code>
 
 ## Navigation
 
