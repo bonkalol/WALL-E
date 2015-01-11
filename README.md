@@ -26,7 +26,7 @@ QSTemplate it's a project template for quick start your web-project. it's based 
 
 Download archive from 
 <a href="http://blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp.zip">http://blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp</a> 
-and run "npm install" in your terminal.
+and run <code>npm install</code> in your terminal.
 
 #### Advance way
 
@@ -167,49 +167,60 @@ Example 1. Folder tree.
 An explanation of what is happening here:
 
 #### dev/assets/
+<hr>
 
 Assets are folder which must contain third-party js, font, css and other stuff... All that is contained in this folder
 will be copied in <code>production/assets/</code> folder.
 
 #### dev/data/
+<hr>
 
-Data are folder which must contain data files, like .json. ll that is contained in this folder
+Data are folder which must contain data files, like <code>.json</code>. ll that is contained in this folder
 will be copied in <code>production/data/</code> folder.
 
 #### dev/font/
+<hr>
 
 I think there is no need to explain. All files in this folder will be copied in <code>production/font/</code> folder.
 
 #### dev/img/
+<hr>
 
 Folder for images, all images in this folder will be minified and minified versions of this images will be copied in
 <code>production/img/</code>
 
 #### dev/img/sprite
+<hr>
 
 Folder for sprite, image in this folder will be generated into <code>production/img/sprite.png</code>
 
 #### dev/jade
+<hr>
 
 Folder for pages in jade extension.
 
 #### dev/jade/layouts
+<hr>
 
 Contain all jade layouts.
 
 #### dev/jade/meta
+<hr>
 
 Contain all configs and helpers like mixins and vars.
 
 #### dev/jade/partials
+<hr>
 
 Contain all jade partials, like <code>nav.jade</code> / <code>head.jade</code>...
 
 #### dev/js
+<hr>
 
 Javascripts ^_^. <code>main.js</code> is a main file.
 
 #### dev/js/partials
+<hr>
 
 All .js files in this folder will be combined into <code>main.js</code>. Js files into this folder not independent files,
 it's just a partials of main.js.
@@ -219,15 +230,18 @@ it's just a partials of main.js.
 <code>Third-party</code> scripts will be combined into main.js.
 
 #### dev/js/libs
+<hr>
 
 Files in libs folder will be copied in <code>production/js/libs</code>
 
 #### dev/static
+<hr>
 
 This folder must contain .html files, if u don't wanna use Jade, write your html in this folder,
 this files will be copied in <code>production/</code>
 
 ### dev/scss
+<hr>
 
 Еhis is a big topic, so it can be considered subsection.
 
@@ -243,10 +257,12 @@ Example 2. Configs.
 <code>main.scss</code> - main file which include all imports.
 
 #### base
+<hr>
 
 base folder contain files like a <code>_reset.scss</code>, <code>_font.scss</code>, <code>_base.scss</code>, <code>_custom-reset.scss</code>.
 
 #### meta
+<hr>
 
 meta folder contain helpers and var. My lovely helper is a <code>_mq.scss</code>.
 
@@ -269,6 +285,7 @@ Example 3. MQ mixin in action.
 	}
 
 #### project/components
+<hr>
 
 This folder contain modules, like buttons, forms, inputs... Main file in this folder are _components.scss.
 All components must be imported in <code>_components.scss</code>.
@@ -281,14 +298,17 @@ All components must be imported in <code>_components.scss</code>.
 		'forms';
 
 #### project/layout
+<hr>
 
 Contain layout items, such like a footer, header... Main file in this folder <code>_layout.scss</code>.
 
 #### project/pages
+<hr>
 
 Contain some specific styles for the pages.
 
 #### project
+<hr>
 
 <code>_class.lib.scss</code> contains classes that will be used frequently.
 
