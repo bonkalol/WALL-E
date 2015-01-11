@@ -44,6 +44,8 @@ Open your terminal and run
 
 After that you ready to go. Run gulp start and start write your code.
 
+PS Yeoman generator version will be soon.
+
 ### QSTemplate About
 
 QSTemplate also contain flexable project architecture. ( example 1. )
@@ -317,6 +319,50 @@ Contain some specific styles for the pages.
 <code>_project.scss</code> contain all imports from this folder.
 
 <code>_sprite.scss</code> contain generated scss code to create sprite mixin.
+
+### Gulp
+
+#### gulpfile.js
+
+In <code>gulpfile</code> required all tasks. Tasks are located in <code>gulp</code> folder
+
+#### gulp/sass.js
+
+```javascript
+gulp.task('sass', function () {
+	return gulp.src('dev/scss/main.scss')
+		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
+		.pipe(sass({
+			style: 'expanded',
+			sourcemap: true,
+			sourcemapPath: 'production/css/'
+		}))
+		.pipe(duration('Finished SASS task in'))
+		.on('error', log)
+		.pipe(autoprefixer({
+			// More about browser: https://github.com/postcss/autoprefixer#browsers
+			browsers: ['ie 10', 'last 2 versions'],
+			cascade: true
+		}))
+		.pipe(duration('Finished Autoprefixer task in'))
+		.pipe(isProduction ? cssmin() : gutil.noop())
+		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
+		.pipe(gulp.dest('production/css/'))
+		.pipe(reload({stream: true}))
+		.pipe(notify('File created: production/css/<%= file.relative %>! SASS Finished.'));
+});
+```
+So
+
+1. Sass was started and notify you
+2. Compiling sass
+3. Console.log how much time it compile takes
+4. If it's a production build, css will be minified
+5. If it's a production build, will log how much time it takes
+6. Save file into dest
+7. Reload browserSync
+8. Notify you that Sass was completed
+
 
 
 
