@@ -10,6 +10,38 @@ QSTemplate it's a project template for quick start your web-project. it's based 
 2. SASS (SCSS)
 3. Gulp
 
+## Navigation
+
+1. <a href="#quick-start">Quick Start</a>
+
+  1.1. <a href="#simple-way">Simple Way</a>
+
+  1.2. <a href="#advance-way">Advance way<a>
+
+2. <a href="#qstemplate-about">All about QSTemplate</a>
+
+### Quick start
+
+#### Simple way
+
+Download archive from blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp and run "npm install" in your terminal.
+
+#### Advance way
+
+Open your terminal and run
+
+	git clone https://github.com/bonkalol/QSTemplate-gulp.git project
+	rm -rf .git && rm readme.md
+	git init
+	git commit -m "init commit"
+	git remote add origin https://github.com/username/reponame.git
+	git push origin master
+	npm install
+
+After that you ready to go. Run gulp start and start write your code.
+
+### QSTemplate About
+
 QSTemplate also contain flexable project architecture. ( example 1. )
 
 Example 1. Folder tree.
@@ -92,7 +124,7 @@ Example 1. Folder tree.
 			├── third-party
 				├── _slick.scss
 			├── _config.scss
-			├── <span style="color: #00933b;">main.scss<span>
+			├── main.scss
 		├── static
 			├── search.html
 			├── cars.html
@@ -130,33 +162,138 @@ Example 1. Folder tree.
 	├── package.json
 	├── README.md
 
-## Navigation
+An explanation of what is happening here:
 
-1. <a href="#quick-start">Quick Start</a>
+#### dev/assets/
 
-  1.1. <a href="#simple-way">Simple Way</a>
+Assets are folder which must contain third-party js, font, css and other stuff... All that is contained in this folder
+will be copied in production/assets/ folder.
 
-  1.2. <a href="#advance-way">Advance way<a>
+#### dev/data/
 
-### Quick start
+Data are folder which must contain data files, like .json. ll that is contained in this folder
+will be copied in production/data/ folder.
 
-#### Simple way
+#### dev/font/
 
-Download archive from blinnikovbogdan.ru/QSTemplate/QSTemplate-gulp and run "npm install" in your terminal.
+I think there is no need to explain. All files in this folder will be copied in production/font/ folder.
 
-#### Advance way
+#### dev/img/
 
-Open your terminal and run
+Folder for images, all images in this folder will be minified and minified versions of this images will be copied in
+production/img/
 
-	git clone https://github.com/bonkalol/QSTemplate-gulp.git project
-	rm -rf .git && rm readme.md
-	git init
-	git commit -m "init commit"
-	git remote add origin https://github.com/username/reponame.git
-	git push origin master
-	npm install
+#### dev/img/sprite
 
-After that you ready to go. Run gulp start and start write your code.
+Folder for sprite, image in this folder will be generated into production/img/sprite.png
+
+#### dev/jade
+
+Folder for pages in jade extension.
+
+#### dev/jade/layouts
+
+Contain all jade layouts.
+
+#### dev/jade/meta
+
+Contain all configs and helpers like mixins and vars.
+
+#### dev/jade/partials
+
+Contain all jade partials, like nav.jade/head.jade...
+
+#### dev/js
+
+Javascripts ^_^. main.js is a main file.
+
+#### dev/js/partials
+
+All .js files in this folder will be combined into main.js. Js files into this folder not independent files,
+it's just a partials of main.js.
+
+#### dev/js/third-party
+
+Third-party scripts will be combined into main.js.
+
+#### dev/js/libs
+
+Files in libs folder will be copied in production/js/libs
+
+#### dev/static
+
+This folder must contain .html files, if u don't wanna use Jade, write your html in this folder,
+this files will be copied in production/
+
+### dev/scss
+
+Еhis is a big topic, so it can be considered subsection.
+
+_config.scss - contain all main configs. ( example 2. )
+
+Example 2. Configs.
+
+	$reset: true;
+	$responsive: true;
+	$borderBox: true;
+	$fontSmooth: true;
+
+main.scss - main file which include all imports.
+
+#### base
+
+base folder contain files like a _reset.scss, _font.scss, _base.scss, _custom-reset.scss.
+
+#### meta
+
+meta folder contain helpers and var. My lovely helper is a _mq.scss.
+
+_mq.scss it's a mixin to write mediaqueris much easier. ( example 3. )
+
+Example 3. MQ mixin in action.
+
+	h1 {
+		@include media ('>phone') {
+			background-color: red;
+		}
+
+		@include media ('>phone', '>815px') {
+			background-color: green;
+		}
+
+		@include media ("retina2x") {
+			font-size: 40px;
+		}
+	}
+
+#### project/components
+
+This folder contain modules, like buttons, forms, inputs... Main file in this folder are _components.scss.
+All components must be imported in _components.scss.
+
+	@import
+		'development',
+		'typography',
+		'buttons',
+		'headings',
+		'forms';
+
+#### project/layout
+
+Contain layout items, such like a footer, header... Main file in this folder _layout.scss.
+
+#### project/pages
+
+Contain some specific styles for the pages.
+
+#### project
+
+_class.lib.scss contains classes that will be used frequently.
+
+_project.scss contain all imports from this folder.
+
+_sprite.scss contain generated scss code to create sprite mixin.
+
 
 
 
