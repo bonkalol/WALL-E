@@ -794,7 +794,7 @@ gulp.task('sass', function () {
 | <code><strong>copyStuff</strong></code> | скопирует <code>assets</code>, <code>static</code>, <code>data</code> ... |
 
 
-### Possible problems
+### Возможные проблемы
 
 Если вы используете windows, и вы не можете установить зависимости используя <code>npm install</code>,
 вам придеться установить все зависимости вручную, например <code>npm install gulp@~3.8.9</code> ... Но есть способо получше, как раз для такого "бага", я приготовил гист, вам надо просто скопировать содержимое<a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">этого</a> гиста и вставить его в терминал.
