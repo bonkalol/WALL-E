@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 	notify = require('gulp-notify');
 
 gulp.task('jade', function() {
-	gulp.src(paths.srcPaths.jade)
+	return gulp.src(paths.srcPaths.jade)
 		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
 		.pipe(jade())
 		.pipe(duration('Finished jade task in'))
@@ -26,7 +26,7 @@ gulp.task('jade', function() {
 });
 
 gulp.task('jadeNewer', function() {
-	gulp.src(paths.srcPaths.jade)
+	return gulp.src(paths.srcPaths.jade)
 		.pipe(newer('./production/'))
 		.pipe(duration('Finished jade task in'))
 		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))

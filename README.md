@@ -42,7 +42,8 @@ Open your terminal and run
 	git push origin master
 	npm install
 
-After that you ready to go. Run gulp start and start write your code.
+<hr>
+After that you ready to go. Run <code>gulp start</code> and goto <code>localhost:3000/production</code>, after that start write your code.
 
 PS Yeoman generator version will be soon.
 

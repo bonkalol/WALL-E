@@ -1,15 +1,14 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+	runSequence = require('run-sequence');
 
-gulp.task('default', function() {
-	gulp.start([
+gulp.task('default', function(callback) {
+	runSequence(
 		'clean',
-		'jade',
-		'sass',
-		'concat',
-		'copyStuff',
+		['jade', 'sass', 'concat', 'copyStuff'],
 		'imagemin:all',
-		'start'
-		]);
+		'start',
+		callback
+		);
 });
 
 gulp.task('compile', function() {

@@ -1,16 +1,17 @@
-
-
 var gulp = require('gulp'),
 	log = require('./errorHandler'),
-	spritesmith = require('gulp.spritesmith');
+	spritesmith = require('gulp.spritesmith'),
+	configs = require('./configs'),
+	paths = configs.paths;
 
 // Sprite Smith
 gulp.task('sprite', function () {
-	gulp.src('dev/img/sprite/*.+(png)').pipe(spritesmith({
+	return gulp.src(paths.scrPaths.sprite + '*.+(png)').pipe(spritesmith({
 		imgName: 'sprite.png',
 		cssName: '../../dev/scss/project/_sprite.scss',
 		imgPath: '../img/sprite.png'
 	}))
 	.on('error', log)
-	.pipe(gulp.dest('production/img/'));
+	.pipe(gulp.dest(paths.destPaths.images))
+	.pipe(notify('File created: ' + paths.destPaths.images + ' <%= file.relative %>! Sprite Finished.'));
 });
