@@ -1,4 +1,4 @@
 {
-	"directory": "production/third-party/",
+	"directory": "dev/assets/",
 	"analytics": false
 }

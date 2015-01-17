@@ -1,0 +1,25 @@
+{
+  "name": "QSTemplate",
+  "version": "2.0.0",
+  "homepage": "https://github.com/bonkalol/QSTemplate-gulp",
+  "authors": [
+    "Blinnikov Bogdan <bonkalol@list.ru>"
+  ],
+  "description": "Quick start your web project",
+  "main": "gulpfile.js",
+  "keywords": [
+    "Jade",
+    "SASS",
+    "SCSS",
+    "Gulp",
+    "Web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -51,9 +51,6 @@ body {
 html, body {
   width: 100%;
   height: 100%;
-}
-
-body {
   font-size: 14px;
   font-family: "Roboto", Arial, Verdana;
 }
@@ -79,32 +76,3 @@ The provided mixins are intended to be used with the array-like variables
   @include sprite($icon-email);
 }
 */
-.debug {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-.debug_grid {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-}
-.debug_grid-column {
-  width: 7.33333%;
-  height: 100%;
-  background-color: rgba(255, 0, 0, 0.5);
-}

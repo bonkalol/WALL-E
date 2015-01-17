@@ -1,6 +1,10 @@
 module.exports = {
 
 	isProduction: false,
+	jshint: true,
+	// set this var to true if u wanna validate your html
+	// but be carefull, it takes a lot of compilation tome
+	htmlValidator: false,
 
 	autoprefixer: {
 		android: 4,
@@ -25,7 +29,7 @@ module.exports = {
 			js: ['./dev/js/jquery-2.1.1.min.js', './dev/js/third-party/*.js', './dev/js/partials/*.js', './dev/js/main.js'],
 			jsLibs: 'dev/js/libs/**/*.js',
 			sprite: 'dev/img/sprite/',
-			images: 'dev/img/**/*.+(png|jpg)',
+			images: 'dev/img/**/*.+(png|jpg|gif)',
 			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			static: 'dev/static/**/*',
 			data: 'dev/data/**/*',
@@ -39,7 +43,7 @@ module.exports = {
 			jsLibs: 'production/js/libs',
 			images: 'production/img',
 			font: 'production/font/',
-			static: 'proudction/',
+			static: 'production/',
 			data: 'production/data',
 			assets: 'production/assets'
 		},
@@ -48,8 +52,8 @@ module.exports = {
 			jade: 'dev/jade/*.jade',
 			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade'],
 			scss: 'dev/scss/**/*.scss',
-			js: 'dev/js/**/*.js',
-			jsLibs: 'dev/js/libs/**/*.js',
+			js: 'dev/js/**/*',
+			jsLibs: 'dev/js/libs/**/*',
 			fonts: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			sprite: 'dev/img/sprite/*.png',
 			images: 'dev/img/**/*',

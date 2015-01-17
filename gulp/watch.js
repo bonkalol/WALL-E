@@ -6,8 +6,8 @@ var gulp = require('gulp'),
 	watchPath = paths.watchPaths;
 
 
-
 gulp.task('watch', function () {
+
 	// scss watcher
 	watch(watchPath.scss, function (files, cb) {
 		gulp.start('sass', cb);

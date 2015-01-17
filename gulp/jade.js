@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	isProduction = configs.isProduction,
 	paths = configs.paths,
 	prettify = require('gulp-html-prettify'),
-	notify = require('gulp-notify');
+	notify = require('gulp-notify'),
+	htmlvalidator = require('gulp-w3cjs');
 
 gulp.task('jade', function() {
 	return gulp.src(paths.srcPaths.jade)
@@ -33,6 +34,7 @@ gulp.task('jadeNewer', function() {
 		.pipe(jade())
 		.on('error', log)
 		.pipe(prettify({indent_char: '	', indent_size: 1}))
+		.pipe(configs.htmlValidator ? htmlvalidator({doctype: 'HTML5', charset: 'utf-8'}) : gutil.noop())
 		.pipe(duration('Finished prettify task in'))
 		.pipe(gulp.dest(paths.destPaths.html))
 		.pipe(reload({stream: true}))

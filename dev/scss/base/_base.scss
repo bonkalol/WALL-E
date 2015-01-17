@@ -21,9 +21,6 @@
 
 html, body {
 	@include size(100%);
-}
-
-body {
 	font-size: $rootFontSize;
 	font-family: $fontFamily;
 }

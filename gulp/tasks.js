@@ -7,8 +7,21 @@ gulp.task('default', function(callback) {
 		['jade', 'sass', 'concat', 'copyStuff'],
 		'imagemin:all',
 		'start',
+		'emptyRemove',
 		callback
 		);
+});
+
+gulp.task('build', function(callback) {
+
+	runSequence(
+		'clean',
+		['jade', 'sass', 'concat', 'copyStuff'],
+		'imagemin:all',
+		'emptyRemove',
+		callback
+		);
+
 });
 
 gulp.task('compile', function() {

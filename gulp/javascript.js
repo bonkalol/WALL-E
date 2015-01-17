@@ -19,8 +19,8 @@ gulp.task('concat', function() {
 	return gulp.src(paths.srcPaths.js)
 		.pipe(newer(paths.destPaths.js))
 		.pipe(notify('File changed: dev/js/<%= file.relative %>! Starting Concat.'))
-		.pipe(jshint())
-		.pipe(jshint.reporter(stylish))
+		.pipe(configs.jshint ? jshint() : gutil.noop())
+		.pipe(configs.jshint ? jshint.reporter(stylish) : gutil.noop())
 		.pipe(concat('main.js'))
 		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
@@ -31,7 +31,14 @@ gulp.task('concat', function() {
 
 
 gulp.task('jshint', function() {
-	return gulp.src('./dev/js/main.js')
-		.pipe(jshint())
-		.pipe(jshint.reporter());
+
+	if ( configs.jshint ) {
+		return gulp.src(paths.srcPaths.js)
+			.pipe(jshint())
+			.pipe(jshint.reporter(stylish));
+	} else {
+		console.log(('Jshint are disabled. Set variable in configs.js to true.').yellow);
+		return;
+	}
+
 });

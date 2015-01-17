@@ -2,27 +2,5 @@
 @if ($dev == true) {
 
 
-	$columns: (
-		size: 12,
-		background: rgba(255, 0, 0, .5)
-		);
-
-	$gridWidth: 100%;
-
-	.debug {
-		@include fixedFull();
-
-		&_grid {
-			display: flex;
-			justify-content: space-between;
-			@include alignCenter();
-			@include size($gridWidth, 100%);
-
-			&-column {
-				@include size((100% / map-get($columns, size)) - 1, 100%);
-				background-color:  map-get($columns, background);
-			}
-		}
-	}
 
 }
