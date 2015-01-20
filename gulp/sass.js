@@ -17,7 +17,6 @@ var gulp = require('gulp'),
 
 gulp.task('sass', function () {
 	return gulp.src(paths.srcPaths.scss)
-		.pipe(notify('File changed: dev/scss/<%= file.relative %>! Starting SASS.'))
 		.pipe(sass({
 			style: configsSass.style,
 			sourcemap: configsSass.sourcemap,

@@ -18,7 +18,6 @@ var gulp = require('gulp'),
 gulp.task('concat', function() {
 	return gulp.src(paths.srcPaths.js)
 		.pipe(newer(paths.destPaths.js))
-		.pipe(notify('File changed: dev/js/<%= file.relative %>! Starting Concat.'))
 		.pipe(configs.jshint ? jshint() : gutil.noop())
 		.pipe(configs.jshint ? jshint.reporter(stylish) : gutil.noop())
 		.pipe(concat('main.js'))
