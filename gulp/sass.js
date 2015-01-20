@@ -22,8 +22,8 @@ gulp.task('sass', function () {
 			sourcemap: configsSass.sourcemap,
 			sourcemapPath: paths.destPaths.css
 		}))
-		.pipe(duration('Finished SASS task in'))
 		.on('error', log)
+		.pipe(duration('Finished SASS task in'))
 		.pipe(autoprefixer({
 			// More about browser: https://github.com/postcss/autoprefixer#browsers
 			browsers: [
