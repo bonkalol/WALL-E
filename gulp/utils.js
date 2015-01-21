@@ -27,7 +27,7 @@ gulp.task('clean', function() {
 
 gulp.task('emptyRemove', function() {
 
-	return gulp.src('production/**/*/empty.gulpkeep', {read: false, force: true})
+	return gulp.src(['production/**/*/empty.gulpkeep', 'production/empty.gulpkeep'], {read: false, force: true})
 	.pipe(clean())
 	.on('error', log);
 

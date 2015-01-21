@@ -50,7 +50,7 @@ module.exports = {
 
 		watchPaths: {
 			jade: 'dev/jade/*.jade',
-			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade'],
+			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade', 'dev/jade/blocks/*.jade'],
 			scss: 'dev/scss/**/*.scss',
 			js: 'dev/js/**/*',
 			jsLibs: 'dev/js/libs/**/*',
