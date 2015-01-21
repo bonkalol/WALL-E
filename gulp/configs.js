@@ -5,6 +5,8 @@ module.exports = {
 	// set this var to true if u wanna validate your html
 	// but be carefull, it takes a lot of compilation tome
 	htmlValidator: false,
+	// enable coffeeScript for .js
+	coffee: true,
 
 	autoprefixer: {
 		android: 4,
@@ -26,7 +28,7 @@ module.exports = {
 		srcPaths: {
 			jade: './dev/jade/*.jade',
 			scss: 'dev/scss/main.scss',
-			js: ['./dev/js/jquery-2.1.1.min.js', './dev/js/third-party/*.js', './dev/js/partials/**/*.js', './dev/js/main.js'],
+			js: ['./dev/js/third-party/**/*', './dev/js/partials/**/*', './dev/js/main.*+(js|coffee)'],
 			jsLibs: 'dev/js/libs/**/*.js',
 			sprite: 'dev/img/sprite/',
 			images: 'dev/img/**/*.+(png|jpg|gif)',
