@@ -6,12 +6,11 @@ var gulp = require('gulp'),
 
 // Sprite Smith
 gulp.task('sprite', function () {
-	return gulp.src(paths.scrPaths.sprite + '*.+(png)').pipe(spritesmith({
+	return gulp.src(paths.scrPaths.sprite).pipe(spritesmith({
 		imgName: 'sprite.png',
 		cssName: '../../dev/scss/project/_sprite.scss',
 		imgPath: '../img/sprite.png'
 	}))
 	.on('error', log)
-	.pipe(gulp.dest(paths.destPaths.images))
-	.pipe(notify('File created: ' + paths.destPaths.images + ' <%= file.relative %>! Sprite Finished.'));
+	.pipe(gulp.dest(paths.destPaths.images));
 });

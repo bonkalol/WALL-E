@@ -21,6 +21,7 @@ gulp.task('concat', function() {
 		.pipe(configs.jshint ? jshint() : gutil.noop())
 		.pipe(configs.jshint ? jshint.reporter(stylish) : gutil.noop())
 		.pipe(concat('main.js'))
+		.on('error', log)
 		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
 		.pipe(isProduction ? duration('Finished Uglify task in') : gutil.noop())

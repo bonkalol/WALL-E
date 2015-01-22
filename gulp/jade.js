@@ -16,10 +16,9 @@ var gulp = require('gulp'),
 gulp.task('jade', function() {
 	return gulp.src(paths.srcPaths.jade)
 		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
-		.pipe(jade())
+		.pipe(jade()).on('error', log)
 		.pipe(duration('Finished jade task in'))
-		.on('error', log)
-		.pipe(prettify({indent_char: '	', indent_size: 1}))
+		.pipe(prettify({indent_char: '	', indent_size: 1})).on('error', log)
 		.pipe(duration('Finished prettify task in'))
 		.pipe(gulp.dest(paths.destPaths.html))
 		.pipe(reload({stream: true}))
