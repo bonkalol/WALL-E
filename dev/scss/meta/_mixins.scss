@@ -117,3 +117,12 @@
 		clear: both;
 	}
 }
+
+
+@mixin webp($url) {
+	@at-root {
+		body.webp & {
+			background-image: url($url);
+		}
+	}
+}
