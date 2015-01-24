@@ -1,7 +1,10 @@
 var gulp = require('gulp'),
 	newer = require('gulp-newer'),
 	imagemin = require('gulp-imagemin'),
-	pngquant = require('imagemin-pngquant');
+	pngquant = require('imagemin-pngquant'),
+	webp = require('gulp-webp'),
+	configs = require('./configs'),
+	gutil = require('gulp-util');
 
 
 gulp.task('imagemin', function () {
@@ -12,7 +15,9 @@ gulp.task('imagemin', function () {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest('production/img'));
+		.pipe(gulp.dest('production/img'))
+		.pipe(configs.webp ? webp() : gutil.noop())
+		.pipe(configs.webp ? gulp.dest('production/img/webp') : gutil.noop());
 });
 
 gulp.task('imagemin:all', function() {
@@ -23,6 +28,8 @@ gulp.task('imagemin:all', function() {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest('production/img'));
+		.pipe(gulp.dest('production/img'))
+		.pipe(configs.webp ? webp() : gutil.noop())
+		.pipe(configs.webp ? gulp.dest('production/img/webp') : gutil.noop());
 
 });

@@ -5,6 +5,7 @@ module.exports = {
 	// set this var to true if u wanna validate your html
 	// but be carefull, it takes a lot of compilation tome
 	htmlValidator: false,
+	webp: true,
 
 	autoprefixer: {
 		android: 4,
