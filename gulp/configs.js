@@ -30,7 +30,7 @@ module.exports = {
 			js: ['./dev/js/jquery-2.1.1.min.js', './dev/js/third-party/*.js', './dev/js/partials/**/*.js', './dev/js/main.js'],
 			jsLibs: 'dev/js/libs/**/*.js',
 			sprite: 'dev/img/sprite/*.png',
-			images: ['dev/img/**/*.+(png|jpg)', '!dev/img/sprite/'],
+			images: ['dev/img/**/*.+(png|jpg)', '!dev/img/sprite/*'],
 			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			static: 'dev/static/**/*',
 			data: 'dev/data/**/*',
