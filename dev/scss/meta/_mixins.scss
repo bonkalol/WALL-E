@@ -119,10 +119,35 @@
 }
 
 
-@mixin webp($url) {
-	@at-root {
-		body.webp & {
-			background-image: url($url);
-		}
+@mixin webp($folder, $file) {
+
+	body.webp & {
+		background-image: url($folder + 'webp/' + $file + '.webp');
 	}
+	
+	body.nowebp & {
+		background-image: url($folder + $file + '.png');
+	}
+
 }
+
+// usage example
+/*
+.h1 {
+
+	@include webp('images/', 'background-image');
+
+}
+
+output css:
+
+body.webp .h1 {
+	background-image: url("images/webp/background-image.webp");
+}
+body.nowebp .h1 {
+	background-image: url("images/background-image.png");
+}
+
+
+
+*/
