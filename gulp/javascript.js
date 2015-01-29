@@ -13,7 +13,6 @@ var gulp = require('gulp'),
 	configs = require('./configs'),
 	paths = configs.paths,
 	coffee = require('gulp-coffee'),
-	gulpFilter = require('gulp-filter'),
 	coffeelint = require('gulp-coffeelint'),
 	gulpif = require('gulp-if');
 
@@ -21,10 +20,6 @@ var gulp = require('gulp'),
 // Concat all JS files into production/js/main.js
 // If coffee disabled
 gulp.task('concat', function() {
-	if (configs.coffee === true) { 
-		var filterJs = gulpFilter(['**/*.js']),
-			filterCoffee = gulpFilter(['**/*.coffee']);
-	}
 	return gulp.src(paths.srcPaths.js)
 		.pipe(newer(paths.destPaths.js))
 		.pipe(gulpif(/[.]coffee$/, coffee()))
