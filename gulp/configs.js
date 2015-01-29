@@ -5,8 +5,7 @@ module.exports = {
 	// set this var to true if u wanna validate your html
 	// but be carefull, it takes a lot of compilation tome
 	htmlValidator: false,
-	// enable coffeeScript for .js
-	coffee: true,
+	webp: true,
 
 	autoprefixer: {
 		android: 4,
@@ -30,8 +29,8 @@ module.exports = {
 			scss: 'dev/scss/main.scss',
 			js: ['./dev/js/third-party/**/*', './dev/js/partials/**/*', './dev/js/main.*+(js|coffee)'],
 			jsLibs: 'dev/js/libs/**/*.js',
-			sprite: 'dev/img/sprite/',
-			images: 'dev/img/**/*.+(png|jpg|gif)',
+			sprite: 'dev/img/sprite/*.png',
+			images: ['dev/img/**/*.+(png|jpg)', '!dev/img/sprite/*'],
 			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			static: 'dev/static/**/*',
 			data: 'dev/data/**/*',
@@ -44,6 +43,7 @@ module.exports = {
 			js: './production/js/',
 			jsLibs: 'production/js/libs',
 			images: 'production/img',
+			webp: 'production/img/webp',
 			font: 'production/font/',
 			static: 'production/',
 			data: 'production/data',
@@ -52,7 +52,7 @@ module.exports = {
 
 		watchPaths: {
 			jade: 'dev/jade/*.jade',
-			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade'],
+			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade', 'dev/jade/blocks/*.jade'],
 			scss: 'dev/scss/**/*.scss',
 			js: 'dev/js/**/*',
 			jsLibs: 'dev/js/libs/**/*',

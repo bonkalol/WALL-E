@@ -31,16 +31,8 @@ gulp.task('concat', function() {
 		// js hint .js files
 		.pipe(configs.jshint ? jshint() : gutil.noop())
 		.pipe(configs.jshint ? jshint.reporter(stylish) : gutil.noop())
-		// if coffee script === true
-		.pipe(configs.coffee ? filterCoffee.restore() : gutil.noop())
-		.pipe(configs.coffee ? filterJs : gutil.noop())
-		.pipe(configs.coffee ? coffee({bare: true}) : gutil.noop()).on('error', log)
-		.pipe(configs.coffee ? coffeelint() : gutil.noop())
-		.pipe(configs.coffee ? coffeelint.reporter('default') : gutil.noop())
-		.pipe(configs.coffee ? duration('Finished Coffee task in') : gutil.noop())
-		.pipe(configs.coffee ? filterJs.restore() : gutil.noop())
-		// defaults
-		.pipe(concat('main.js')).on('error', log)
+		.pipe(concat('main.js'))
+		.on('error', log)
 		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
 		.pipe(isProduction ? duration('Finished Uglify task in') : gutil.noop())
