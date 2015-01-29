@@ -119,23 +119,32 @@
 }
 
 
-@mixin webp($folder, $file) {
+@mixin webp($folder, $file, $fallbackType) {
 
 	body.webp & {
 		background-image: url($folder + 'webp/' + $file + '.webp');
 	}
 	
 	body.nowebp & {
-		background-image: url($folder + $file + '.png');
+		background-image: url($folder + $file + $fallbackType);
 	}
 
+}
+
+@mixin reset-btn() {
+	border: none;
+	background: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
 }
 
 // usage example
 /*
 .h1 {
 
-	@include webp('images/', 'background-image');
+	@include webp('images/', 'background-image', '.jpg');
 
 }
 
