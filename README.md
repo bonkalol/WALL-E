@@ -27,6 +27,10 @@ QSTemplate it's a project template for quick start your web-project. it's based 
 
 Read more in <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
 
+### Bugs / enhancement
+
+Found a bug or want to suggest improvements? Write about it in <a href="https://github.com/bonkalol/QSTemplate-gulp/issues">issue</a> or send me an email <a href="mailto:bonkalol@list.ru">bonkalol@list.ru</a>
+
 #### Available gulp tasks
 
 | task | description |
@@ -51,11 +55,16 @@ Gulp not watching empty folders. that's not my fault, this problem are still act
 
 QSTemplate это шаблон для быстрого старта вашего веб-проекта, состоит он из 3ех мощных компонентов для веб-разработки.
 
-Читать больше в <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
-
 1. <code>Jade</code>
 2. <code>SASS (SCSS)</code>
 3. <code>Gulp</code>
+
+Читать больше в <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
+
+### Баги / пожелания
+
+Нашли баг или хотите предложить фичу? Пишите в <a href="https://github.com/bonkalol/QSTemplate-gulp/issues">issue</a> или мне на почту <a href="mailto:bonkalol@list.ru">bonkalol@list.ru</a>
+
 
 #### Доступные таски
 
