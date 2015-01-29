@@ -14,7 +14,8 @@ var gulp = require('gulp'),
 	paths = configs.paths,
 	coffee = require('gulp-coffee'),
 	gulpFilter = require('gulp-filter'),
-	coffeelint = require('gulp-coffeelint');
+	coffeelint = require('gulp-coffeelint'),
+	gulpif = require('gulp-if');
 
 
 // Concat all JS files into production/js/main.js
@@ -26,11 +27,8 @@ gulp.task('concat', function() {
 	}
 	return gulp.src(paths.srcPaths.js)
 		.pipe(newer(paths.destPaths.js))
-		// filter coffee
-		.pipe(configs.coffee ? filterCoffee : gutil.noop())
-		// js hint .js files
-		.pipe(configs.jshint ? jshint() : gutil.noop())
-		.pipe(configs.jshint ? jshint.reporter(stylish) : gutil.noop())
+		.pipe(gulpif(/[.]coffee$/, coffee()))
+		.pipe(gulpif(/[.]coffee$/, coffeelint()))
 		.pipe(concat('main.js'))
 		.on('error', log)
 		.pipe(duration('Finished Concat task in'))
