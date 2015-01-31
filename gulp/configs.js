@@ -30,7 +30,7 @@ module.exports = {
 			js: ['./dev/js/third-party/**/*', './dev/js/partials/**/*', './dev/js/main.*+(js|coffee)'],
 			jsLibs: 'dev/js/libs/**/*.js',
 			sprite: 'dev/img/sprite/*.png',
-			images: ['dev/img/**/*.+(png|jpg)', '!dev/img/sprite/*'],
+			images: ['dev/img/**/*.+(png|jpg|svg)', '!dev/img/sprite/*'],
 			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			static: 'dev/static/**/*',
 			data: 'dev/data/**/*',
