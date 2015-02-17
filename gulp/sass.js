@@ -20,7 +20,6 @@ gulp.task('sass', function () {
 		.on('error', log)
 		.pipe(duration('Finished SASS task in'))
 		.pipe(autoprefixer({
-			// More about browser: https://github.com/postcss/autoprefixer#browsers
 			browsers: [
 				'Android >= ' + configsAutoprefixer.android,
 				'Chrome >= ' + configsAutoprefixer.chrome,

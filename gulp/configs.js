@@ -26,7 +26,7 @@ module.exports = {
 
 		srcPaths: {
 			jade: './dev/jade/*.jade',
-			scss: 'dev/scss/main.scss',
+			scss: './dev/scss/main.scss',
 			js: ['./dev/js/third-party/**/*', './dev/js/partials/**/*', './dev/js/main.*+(js|coffee)'],
 			jsLibs: 'dev/js/libs/**/*.js',
 			sprite: 'dev/img/sprite/*.png',

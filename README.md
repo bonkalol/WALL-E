@@ -47,8 +47,6 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 If u are using windows, and you can't install dependencies using <code>npm install</code>,
 you should install all dependencies by yourself, like <code>npm install gulp@~3.8.9</code> ... Or u can copy and paste in your terminal all npm installs from <a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">this</a> gist.
 
-Gulp not watching empty folders. that's not my fault, this problem are still actual. Gulp watch <a href="https://github.com/floatdrop/gulp-watch/issues/56">issue 56</a>.
-
 ## Ru
 
 <a href="https://github.com/bonkalol/QSTemplate">Grunt</a> или <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> версия
@@ -81,5 +79,3 @@ QSTemplate это шаблон для быстрого старта вашего
 
 Если вы используете windows, и вы не можете установить зависимости используя <code>npm install</code>,
 вам придеться установить все зависимости вручную, например <code>npm install gulp@~3.8.9</code> ... Но есть способо получше, как раз для такого "бага", я приготовил гист, вам надо просто скопировать содержимое <a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">этого</a> гиста и вставить его в терминал.
-
-Gulp не смотрит в пустые папки. Это не моя вина, Эта проблема до сих пор актуальна. Gulp watch <a href="https://github.com/floatdrop/gulp-watch/issues/56">issue 56</a>.

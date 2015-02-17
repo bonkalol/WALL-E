@@ -14,7 +14,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2), 
 only screen and (                min-resolution: 192dpi), 
 only screen and (                min-resolution: 2dppx)", 
-    retina3x: "@media only screen and (-webkit-min-device-pixel-ratio: 3), 
+    retina3x: "only screen and (-webkit-min-device-pixel-ratio: 3), 
   only screen and (min-resolution: 3dppx), 
   only screen and (min-resolution: 350dpi)"
     ) !default;
