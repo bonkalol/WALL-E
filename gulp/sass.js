@@ -13,11 +13,13 @@ var gulp = require('gulp'),
 	configsSass = configs.sass,
 	configsAutoprefixer = configs.autoprefixer,
 	isProduction = configs.isProduction,
-	paths = configs.paths;
+	paths = configs.paths,
+	sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass', function () {
-	return sass(paths.srcPaths.scss, {style: 'expanded'})
+	return sass(paths.srcPaths.scss, { style: 'expanded', sourcemap: true })
 		.on('error', log)
+		.pipe(sourcemaps.write())
 		.pipe(duration('Finished SASS task in'))
 		.pipe(autoprefixer({
 			browsers: [
