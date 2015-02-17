@@ -25,6 +25,7 @@ Before start you must have installed <a href="http://git-scm.com/downloads">git<
 	git commit -m "init commit"
 	git remote add origin https://github.com/username/reponame.git
 	git push origin master
+	npm cache clean
 	npm install
 
 <a href="https://github.com/bonkalol/QSTemplate">Grunt</a> Or <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> version
