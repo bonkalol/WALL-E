@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-	changeEvent = require('./changeEvent'),
 	watch = require('gulp-watch'),
 	configs = require('./configs'),
 	paths = configs.paths,
@@ -8,72 +7,48 @@ var gulp = require('gulp'),
 
 gulp.task('watch', function () {
 
-	// scss watcher
-	watch(watchPath.scss, function (files, cb) {
-		gulp.start('sass', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.scss, function () {
+		gulp.start('sass');
 	});
 	// jade watcher
-	watch(watchPath.jade, function (files, cb) {
-		gulp.start('jade', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.jade, function () {
+		gulp.start('jade');
 	});
-	watch(watchPath.jadePartials, function (files, cb) {
-		gulp.start('jade', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.jadePartials, function () {
+		gulp.start('jade');
 	});
 	// js watcher
-	watch(watchPath.js, function (files, cb) {
-		gulp.start('concat', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.js, function () {
+		gulp.start('concat');
 	});
 	// sprite watcher
-	watch(watchPath.sprite, function (files, cb) {
-		gulp.run('sprite', 'sass');
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.sprite, function () {
+		gulp.start('build-sprite');
 	});
 	// minimage watcher
-	watch(watchPath.images, function(files, cb) {
-		gulp.start('imagemin', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.images, function() {
+		gulp.start('imagemin');
 	});
-
 	// copy stuff watcher
 	// js libs watcher
-	watch(watchPath.jsLibs, function (files, cb) {
-		gulp.start('copyLibs', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.jsLibs, function () {
+		gulp.start('copyLibs');
 	});
 	// fonts watcher
-	watch(watchPath.fonts, function (files, cb) {
-		gulp.start('copyFonts', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.fonts, function () {
+		gulp.start('copyFonts');
 	});
 	// assets
-	watch(watchPath.assets, function (files, cb) {
-		gulp.start('copyAssets', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.assets, function () {
+		gulp.start('copyAssets');
 	});
 	// static
-	watch(watchPath.static, function (files, cb) {
-		gulp.start('copyStatic', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.static, function () {
+		gulp.start('copyStatic');
 	});
 	// static
-	watch(watchPath.data, function (files, cb) {
-		gulp.start('copyData', cb);
-	}).on('change', function(event) {
-		changeEvent(event)
+	watch(watchPath.data, function () {
+		gulp.start('copyData');
 	});
 
 });

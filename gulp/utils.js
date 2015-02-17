@@ -1,8 +1,7 @@
 var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
-	clean = require('gulp-clean'),
-	log = require('./errorHandler'),
+	del = require('del'),
 	configs = require('./configs');
 
 
@@ -18,17 +17,9 @@ gulp.task('browser-sync', function() {
 
 gulp.task('clean', function() {
 
-	return gulp.src('production', {read: false, force: true})
-	.pipe(clean())
-	.on('error', log);
+	del(['production'], function (err, deletedFiles) {
+		console.log('Files deleted:', deletedFiles.join(', '));
+	});
 
-});
-
-
-gulp.task('emptyRemove', function() {
-
-	return gulp.src(['production/**/*/empty.gulpkeep', 'production/empty.gulpkeep'], {read: false, force: true})
-	.pipe(clean())
-	.on('error', log);
 
 });

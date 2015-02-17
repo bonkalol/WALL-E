@@ -5,11 +5,13 @@ var gulp = require('gulp'),
 	webp = require('gulp-webp'),
 	configs = require('./configs'),
 	gutil = require('gulp-util'),
-	paths = configs.paths;
+	paths = configs.paths,
+	plumber = require('gulp-plumber');
 
 
 gulp.task('imagemin', function () {
 	return gulp.src(paths.srcPaths.images)
+		.pipe(plumber({errorHandler: log}))
 		.pipe(newer(paths.destPaths.images))
 		.pipe(imagemin({
 			progressive: true,
@@ -24,6 +26,7 @@ gulp.task('imagemin', function () {
 gulp.task('imagemin:all', function() {
 
 	return gulp.src(paths.srcPaths.images)
+		.pipe(plumber({errorHandler: log}))
 		.pipe(imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],

@@ -2,15 +2,18 @@ var gulp = require('gulp'),
 	log = require('./errorHandler'),
 	spritesmith = require('gulp.spritesmith'),
 	configs = require('./configs'),
-	paths = configs.paths;
+	paths = configs.paths,
+	plumber = require('gulp-plumber');
 
 // Sprite Smith
 gulp.task('sprite', function () {
-	return gulp.src(paths.scrPaths.sprite).pipe(spritesmith({
+	// Generate our spritesheet
+	return gulp.src(paths.srcPaths.sprite)
+	.pipe(spritesmith({
 		imgName: 'sprite.png',
 		cssName: '../../dev/scss/project/_sprite.scss',
 		imgPath: '../img/sprite.png'
 	}))
-	.on('error', log)
+	.pipe(plumber({errorHandler: log}))
 	.pipe(gulp.dest(paths.destPaths.images));
 });

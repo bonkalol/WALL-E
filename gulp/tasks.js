@@ -2,23 +2,28 @@ var gulp = require('gulp'),
 	runSequence = require('run-sequence');
 
 gulp.task('default', function(callback) {
-	runSequence(
-		'clean',
-		['jade', 'sass', 'concat', 'copyStuff'],
-		'imagemin:all',
-		'start',
-		'emptyRemove',
-		callback
-		);
+
+	gulp.start('build');
+
 });
 
 gulp.task('build', function(callback) {
 
 	runSequence(
 		'clean',
+		'sprite',
 		['jade', 'sass', 'concat', 'copyStuff'],
 		'imagemin:all',
-		'emptyRemove',
+		callback
+		);
+
+});
+
+gulp.task('build-sprite', function(callback) {
+
+	runSequence(
+		'sprite',
+		'sass',
 		callback
 		);
 
