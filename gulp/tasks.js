@@ -8,7 +8,7 @@ gulp.task('default', function(callback) {
 
 gulp.task('build', function(callback) {
 
-	gulp.run('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all');
+	gulp.run('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all', 'svgSprite');
 
 });
 

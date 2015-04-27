@@ -1,5 +1,9 @@
 .walle_welcome {
 	font-size: 4vw;
-	padding-top: 45vh;
-	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	white-space: nowrap;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 }

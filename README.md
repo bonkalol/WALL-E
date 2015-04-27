@@ -52,6 +52,21 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 | <code><strong>compile</strong></code> | will run <code>sass</code>, <code>jade</code> and <code>concat</code> tasks |
 | <code><strong>copyStuff</strong></code> | will copy <code>assets</code>, <code>static</code>, <code>data</code> ... |
 
+### Version 3.0.0
+
+1. Update all package.json dependencies
+2. Added .htaccess for appCache and created manifest file
+3. Update whole project file tree, now dev => app, production => dist
+4. Added svg-sprites
+5. Added fonts / svg caching in localStorage
+6. Fix bug with imagemin then it throw error
+7. Remove Susy
+8. Remove jquery by default, now all dependencies should be loaded with bower
+9. Added some usefull js components
+10. Fix bug then webp task copy .svg
+11. Added uncss
+
+
 ### Patch notes 2.1.0
 
 1. Update all package.json dependecies
@@ -105,6 +120,17 @@ QSTemplate это шаблон для быстрого старта вашего
 ### Версия 3.0.0
 
 1. Обновил все зависимости package.json
+2. Добавил .htaccess для appCache и создал manifest файл
+3. Обновил структуру проекта, теперь dev => app, production => dist
+4. Добавил svg-спрайты
+5. Добабвиш кеширование в localStorage шрифтов и Svg спрайтов
+6. Исправил баг с imagemin когда она выкидывал ошибку
+7. Удалил Susy
+8. Удалил jquery по умолчанию, теперь все необходимые зависимости устанвливаются с помощь bower
+9. Добавил несколько js компонентов по умолчанию
+10. Исправил баг когда webp таск копировал .svg
+11. Добавил uncss
+
 
 ### Патч 2.1.0
 

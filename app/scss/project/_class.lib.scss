@@ -1,0 +1,6 @@
+// Hack for svg sprite in .html
+
+body > svg:first-of-type {
+	position: absolute;
+	left: -9999px;
+}

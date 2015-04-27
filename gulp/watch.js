@@ -23,13 +23,15 @@ gulp.task('watch', function () {
 	});
 	// sprite watcher
 	watch(watchPath.sprite, function () {
-		gulp.start('build-sprite');
+			gulp.start('build-sprite');
 	});
 	// minimage watcher
 	watch(watchPath.images, function() {
-		var timeout = setTimeout(function(){
 			gulp.start('imagemin');
-		}, 200);
+	});
+	// svg sprite
+	watch(watchPath.svg, function() {
+			gulp.start('svgSprite');
 	});
 	// copy stuff watcher
 	// js libs watcher

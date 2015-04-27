@@ -7,8 +7,12 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	paths = configs.paths,
 	log = require('./errorHandler'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+	svgSprite = require('gulp-svg-sprite'),
+	gulpFilter = require('gulp-filter');
 
+
+var filter = gulpFilter(['*', '!*.svg']);
 
 gulp.task('imagemin', function () {
 	return gulp.src(paths.srcPaths.images)
@@ -19,9 +23,7 @@ gulp.task('imagemin', function () {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest(paths.destPaths.images))
-		.pipe(configs.webp ? webp() : gutil.noop())
-		.pipe(configs.webp ? gulp.dest(paths.destPaths.webp) : gutil.noop());
+		.pipe(gulp.dest(paths.destPaths.images));
 });
 
 gulp.task('imagemin:all', function() {
@@ -33,8 +35,49 @@ gulp.task('imagemin:all', function() {
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		}))
-		.pipe(gulp.dest(paths.destPaths.images))
+		.pipe(gulp.dest(paths.destPaths.images));
+
+});
+
+gulp.task('webp:newer', function() {
+
+	return gulp.src([paths.srcPaths.images, '!svg/'])
+		.pipe(plumber({errorHandler: log}))
+		.pipe(newer([paths.srcPaths.images, '!svg/']))
 		.pipe(configs.webp ? webp() : gutil.noop())
 		.pipe(configs.webp ? gulp.dest(paths.destPaths.webp) : gutil.noop());
 
+});
+
+gulp.task('webp:all', function() {
+
+	return gulp.src([paths.srcPaths.images, '!svg/'])
+		.pipe(plumber({errorHandler: log}))
+		.pipe(configs.webp ? webp() : gutil.noop())
+		.pipe(configs.webp ? gulp.dest(paths.destPaths.webp) : gutil.noop());
+
+});
+
+var svgConfigs = {
+
+	mode: {
+		symbol: true,
+		inline: true
+	},
+
+	svg: {
+		xmlDeclaration: false,
+		doctypeDeclaration: false
+	},
+
+	dest: '.'
+
+};
+
+gulp.task('svgSprite', function() {
+
+	return gulp.src(paths.srcPaths.images)
+		.pipe(plumber({errorHandler: log}))
+		.pipe(svgSprite(svgConfigs))
+		.pipe(gulp.dest('dist/img/'));
 });

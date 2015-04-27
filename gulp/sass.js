@@ -47,7 +47,8 @@ gulp.task('checkCss', function() {
 
 	return gulp.src('./dist/css/app.css')
 		.pipe(uncss({
-			html: ['dist/*.html']
+			html: ['dist/*.html'],
+			ignore: ['body > svg:first-of-type']
 		}))
 		.pipe(gulp.dest('./dist/css/'));
 

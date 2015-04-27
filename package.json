@@ -34,6 +34,7 @@
     "gulp-concat": "~2.5.2",
     "gulp-cssmin": "~0.1.7",
     "gulp-duration": "0.0.0",
+    "gulp-filter": "^2.0.2",
     "gulp-html-prettify": "0.0.1",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "~2.2.1",
@@ -44,6 +45,7 @@
     "gulp-plumber": "~1.0.0",
     "gulp-ruby-sass": "~1.0.5",
     "gulp-sourcemaps": "~1.5.2",
+    "gulp-svg-sprite": "^1.1.2",
     "gulp-uglifyjs": "~0.6.1",
     "gulp-uncss": "^1.0.1",
     "gulp-util": "~3.0.4",
@@ -53,6 +55,7 @@
     "gulp.spritesmith": "~3.5.4",
     "imagemin-pngquant": "~4.1.0",
     "jshint-stylish": "~1.0.1",
-    "require-dir": "~0.3.0"
+    "require-dir": "~0.3.0",
+    "vinyl": "^0.4.6"
   }
 }
