@@ -1,6 +1,6 @@
 {
-  "name": "QSTemplate-gulp",
-  "version": "2.0.0",
+  "name": "Wall-e",
+  "version": "3.0.0",
   "description": "Quick Start template for your web-project",
   "main": "gulpfile.js",
   "scripts": {
