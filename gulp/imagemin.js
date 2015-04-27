@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	configs = require('./configs'),
 	gutil = require('gulp-util'),
 	paths = configs.paths,
+	log = require('./errorHandler'),
 	plumber = require('gulp-plumber');
 
 

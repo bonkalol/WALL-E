@@ -1,61 +1,39 @@
-var gulp = require('gulp'),
-	runSequence = require('run-sequence');
+var gulp = require('gulp');
 
 gulp.task('default', function(callback) {
 
-	gulp.start('build');
+	gulp.run('build');
 
 });
 
 gulp.task('build', function(callback) {
 
-	runSequence(
-		'clean',
-		'sprite',
-		['jade', 'sass', 'concat', 'copyStuff'],
-		'imagemin:all',
-		callback
-		);
+	gulp.run('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all');
 
 });
 
 gulp.task('build-sprite', function(callback) {
 
-	runSequence(
-		'sprite',
-		'sass',
-		callback
-		);
+	gulp.run('sprite', 'sass');
 
 });
 
 gulp.task('compile', function() {
-	gulp.start([
-		'jade',
-		'sass',
-		'concat'
-		]);
+
+	gulp.run('jade', 'sass', 'concat');
+
 });
 
 
 gulp.task('start', function() {
 
-	gulp.start([
-		'browser-sync',
-		'watch'
-		]);
+	gulp.run('browser-sync', 'watch');
 
 });
 
 
 gulp.task('copyStuff', function() {
 
-	gulp.start([
-		'copyFonts',
-		'copyLibs',
-		'copyAssets',
-		'copyData',
-		'copyStatic'
-		]);
+	gulp.run('copyFonts', 'copyLibs', 'copyAssets', 'copyComponents', 'copyData', 'copyStatic');
 
 });

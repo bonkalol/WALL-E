@@ -1,0 +1,20 @@
+include ../meta/configs
+include ../meta/mixins
+
+
+meta(charset="utf-8")
+title= pageTitle || headConfigs.title
+link(rel="stylesheet" href=cssPath || configs.css)
+
+if layoutSetters.headTags
+	meta(name='description' content=pageDescription || headConfigs.description)
+	meta(name='keywords' content=pageKeywords || headConfigs.keywords)
+if layoutSetters.OGTags
+	//- Open Graph Meta
+	meta(property="og:title" content=OGmetaTitle || OGmeta.title)
+	meta(property="og:url" content=OGmetaUrl || OGmeta.url)
+	meta(property="og:image" content=OGmetaImage || OGmeta.image)
+	meta(property="og:locale" content=OGmetaLocal || OGmeta.locale)
+	meta(property="og:locale:alternate" content=OGmetaLocalAlt || OGmeta.localeAlt)
+	meta(property="og:description" content=OGmetaDescription || OGmeta.description)
+	meta(property="og:site_name" content=OGmetaSiteName || OGmeta.siteName)

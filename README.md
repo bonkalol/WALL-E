@@ -52,12 +52,6 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 | <code><strong>compile</strong></code> | will run <code>sass</code>, <code>jade</code> and <code>concat</code> tasks |
 | <code><strong>copyStuff</strong></code> | will copy <code>assets</code>, <code>static</code>, <code>data</code> ... |
 
-
-### Possible problems
-
-If u are using windows, and you can't install dependencies using <code>npm install</code>,
-you should install all dependencies by yourself, like <code>npm install gulp@~3.8.11</code> ... Or u can copy and paste in your terminal all npm installs from <a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">this</a> gist.
-
 ### Patch notes 2.1.0
 
 1. Update all package.json dependecies
@@ -108,10 +102,9 @@ QSTemplate это шаблон для быстрого старта вашего
 
 Читать больше в <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
 
-### Возможные проблемы
+### Версия 3.0.0
 
-Если вы используете windows, и вы не можете установить зависимости используя <code>npm install</code>,
-вам придеться установить все зависимости вручную, например <code>npm install gulp@~3.8.11</code> ... Но есть способо получше, как раз для такого "бага", я приготовил гист, вам надо просто скопировать содержимое <a href="https://gist.github.com/bonkalol/aa89e4cfa3ed64ba7de3">этого</a> гиста и вставить его в терминал.
+1. Обновил все зависимости package.json
 
 ### Патч 2.1.0
 

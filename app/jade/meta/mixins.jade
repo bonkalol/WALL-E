@@ -1,0 +1,32 @@
+include configs
+
+mixin head()
+	//- HEAD
+	title= configs.title
+	link(href='' + configs.css rel='stylesheet')
+
+
+//- Head Mixin with OpenGraph
+mixin OGhead()
+	meta(charset="utf-8")
+	//- Open Graph Meta
+	meta(property="og:title" content='' + OGmeta.title)
+	meta(property="og:url" content='' + OGmeta.url)
+	meta(property="og:image" content='' + OGmeta.image)
+	meta(property="og:locale" content='' + OGmeta.locale)
+	meta(property="og:locale:alternate" content='' + OGmeta.locale)
+	meta(property="og:description" content='' + OGmeta.localeAlt)
+	meta(property="og:site_name" content='' + OGmeta.siteName)
+	//- /OG meta end
+
+
+
+//- Seo Head
+mixin headSEO(desc, tags, author)
+	meta(name="description" content=desc)
+	meta(name="keywords" content=tags)
+	meta(name="author" content=author)
+
+//- Responsive viewport
+mixin responsiveMeta()
+	meta(name="viewport" content="width=device-width, initial-scale=1")

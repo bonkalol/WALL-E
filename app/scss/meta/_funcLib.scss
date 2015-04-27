@@ -1,0 +1,28 @@
+@function calcProcent($value, $defaultValue) {
+	@return ($value / $defaultValue) * 100%;
+}
+
+
+// convert pixels to rem
+@function px2rem($px, $base-font-size: $rootFontSize) {
+	@if unitless($px) {
+		@warn 'Assuming #{$px} to be in pixels, attempting to convert it into pixels.';
+		@return px2rem($px + 0px);
+	} @else if unit($px) == rem {
+		@return $px;
+	}
+
+	@return ($px / $base-font-size) * 1rem;
+}
+
+// convert to em
+@function px2em($px, $base-font-size: $rootFontSize) {
+	@if unitless($px) {
+		@warn 'Assuming #{$px} to be in pixels, attempting to convert it into pixels.';
+		@return px2em($px + 0px);
+	} @else if unit($px) == em {
+		@return $px;
+	}
+
+	@return ($px / $base-font-size) * 1em;
+}

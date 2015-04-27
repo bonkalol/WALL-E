@@ -14,7 +14,8 @@ var gulp = require('gulp'),
 	configsAutoprefixer = configs.autoprefixer,
 	isProduction = configs.isProduction,
 	paths = configs.paths,
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	uncss = require('gulp-uncss');
 
 gulp.task('sass', function () {
 	return sass(paths.srcPaths.scss, { style: 'expanded', sourcemap: true })
@@ -39,4 +40,15 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest(paths.destPaths.css))
 		.pipe(reload({stream: true}))
 		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'));
+});
+
+
+gulp.task('checkCss', function() {
+
+	return gulp.src('./dist/css/app.css')
+		.pipe(uncss({
+			html: ['dist/*.html']
+		}))
+		.pipe(gulp.dest('./dist/css/'));
+
 });

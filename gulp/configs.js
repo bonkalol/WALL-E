@@ -25,43 +25,46 @@ module.exports = {
 	paths: {
 
 		srcPaths: {
-			jade: './dev/jade/*.jade',
-			scss: 'dev/scss/main.scss',
-			js: ['./dev/js/third-party/**/*', './dev/js/partials/**/*', './dev/js/main.*+(js|coffee)'],
-			jsLibs: 'dev/js/libs/**/*.js',
-			sprite: 'dev/img/sprite/*.png',
-			images: ['dev/img/**/*.+(png|jpg|svg)', '!dev/img/sprite/*'],
-			font: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
-			static: 'dev/static/**/*',
-			data: 'dev/data/**/*',
-			assets: 'dev/assets/**/*'
+			jade: './app/jade/*.jade',
+			scss: 'app/scss/app.scss',
+			js: ['./app/js/modules/**/*', './app/js/common.js'],
+			jsLibs: 'app/js/libs/**/*.js',
+			sprite: 'app/img/sprite/*.png',
+			images: ['app/img/**/*.+(png|jpg|svg|webp)', '!app/img/sprite/*'],
+			font: 'app/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
+			static: ['app/static/**/*', 'app/static/.htaccess'],
+			data: 'app/data/**/*',
+			assets: 'app/assets/**/*',
+			components: 'app/components/**/*'
 		},
 
 		destPaths: {
-			html: './production/',
-			css: 'production/css/',
-			js: './production/js/',
-			jsLibs: 'production/js/libs',
-			images: 'production/img',
-			webp: 'production/img/webp',
-			font: 'production/font/',
-			static: 'production/',
-			data: 'production/data',
-			assets: 'production/assets'
+			html: './dist/',
+			css: 'dist/css/',
+			js: './dist/js/',
+			jsLibs: 'dist/js/libs',
+			images: 'dist/img',
+			webp: 'dist/img/webp',
+			font: 'dist/font/',
+			static: 'dist/',
+			data: 'dist/data',
+			assets: 'dist/assets',
+			components: 'dist/components/'
 		},
 
 		watchPaths: {
-			jade: 'dev/jade/*.jade',
-			jadePartials: ['dev/jade/partials/*.jade', 'dev/jade/layouts/*.jade', 'dev/jade/blocks/*.jade'],
-			scss: 'dev/scss/**/*.scss',
-			js: ['dev/js/**/*.*+(js|coffee)', '!dev/js/libs/'],
-			jsLibs: 'dev/js/libs/**/*',
-			fonts: 'dev/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
-			sprite: 'dev/img/sprite/*.png',
-			images: 'dev/img/**/*',
-			static: 'dev/static/**/*',
-			data: 'dev/data/**/*',
-			assets: 'dev/assets/**/*'
+			jade: 'app/jade/*.jade',
+			jadePartials: ['app/jade/partials/*.jade', 'app/jade/layouts/*.jade', 'app/jade/blocks/*.jade'],
+			scss: 'app/scss/**/*.scss',
+			js: ['app/js/**/*.*+(js|coffee)', '!app/js/libs/'],
+			jsLibs: 'app/js/libs/**/*',
+			fonts: 'app/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
+			sprite: 'app/img/sprite/*.png',
+			images: 'app/img/**/*',
+			static: 'app/static/**/*',
+			data: 'app/data/**/*',
+			assets: 'app/assets/**/*',
+			components: 'app/components/**/*'
 		}
 
 	}

@@ -5,6 +5,8 @@ var gulp = require('gulp'),
 	stylish = require('jshint-stylish'),
 	colors = require('colors'),
 	gutil = require('gulp-util'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload,
 	notify = require('gulp-notify'),
 	isProduction = require('./configs').isProduction;
 	duration = require('gulp-duration'),
@@ -23,14 +25,14 @@ var gulp = require('gulp'),
 gulp.task('concat', function() {
 	return gulp.src(paths.srcPaths.js)
 		.pipe(plumber({errorHandler: log}))
-		.pipe(newer(paths.destPaths.js))
 		.pipe(gulpif(/[.]coffee$/, coffee()))
 		.pipe(gulpif(/[.]coffee$/, coffeelint()))
-		.pipe(concat('main.js'))
+		.pipe(concat('app.js'))
 		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
 		.pipe(isProduction ? duration('Finished Uglify task in') : gutil.noop())
-		.pipe(gulp.dest(paths.destPaths.js));
+		.pipe(gulp.dest(paths.destPaths.js))
+		.pipe(reload({stream: true}));
 });
 
 

@@ -1,0 +1,22 @@
+
+@function span($value, $max) {
+
+	$single: 100% / $max;
+	$percent: $value * $single;
+	@return $percent;
+
+}
+
+@mixin span($value, $max) {
+
+	$single: 100% / $max;
+	$percent: $value * $single;
+	width: $percent;
+
+}
+
+@mixin container($value) {
+	display: block;
+	margin: 0 auto;
+	width: $value;
+}

@@ -19,7 +19,7 @@ gulp.task('watch', function () {
 	});
 	// js watcher
 	watch(watchPath.js, function () {
-		gulp.start('concat');
+		gulp.start('concat', 'jshint');
 	});
 	// sprite watcher
 	watch(watchPath.sprite, function () {
@@ -27,7 +27,9 @@ gulp.task('watch', function () {
 	});
 	// minimage watcher
 	watch(watchPath.images, function() {
-		gulp.start('imagemin');
+		var timeout = setTimeout(function(){
+			gulp.start('imagemin');
+		}, 200);
 	});
 	// copy stuff watcher
 	// js libs watcher

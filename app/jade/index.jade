@@ -1,0 +1,16 @@
+extends layouts/default
+
+block head
+	- cssPath = 'css/app.css';
+	- pageTitle = 'Wall-e template engine';
+	- OGmetaTitle = 'Wall-e template engine';
+	//- u can add all avaliable variables, available variables can be found in partials/head, partials/OGhead
+	//- if u dont set this vars, they will have default values
+
+block content
+	h1.walle_welcome Hello my friend. Wall-e greetings you.
+
+block additionalCSS
+	link(rel="stylesheet", property="stylesheet", href="assets/walle.css")
+
+block scripts

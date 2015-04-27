@@ -30,3 +30,8 @@ gulp.task('copyStatic', function() {
 	.pipe(gulp.dest(paths.destPaths.static));
 });
 
+gulp.task('copyComponents', function() {
+	return gulp.src(paths.srcPaths.components)
+	.pipe(gulp.dest(paths.destPaths.components));
+});
+

@@ -1,0 +1,26 @@
+// Config Settings Import
+// Change values in _config.scss
+@if $borderBox == true {
+
+	*,
+	*:after,
+	*:before {
+		box-sizing: border-box;
+	}
+
+}
+
+@if $fontSmooth == true {
+
+	body {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+}
+
+html, body {
+	@include size(100%);
+	font-size: $rootFontSize;
+	font-family: $fontFamily;
+}

@@ -1,0 +1,20 @@
+$reset: true;
+$responsive: true;
+$borderBox: true;
+$fontSmooth: true;
+
+$customReset: true;
+$dev: true;
+// base settings
+$rootFontSize: 14px;
+$fontFamily: 'Roboto', Arial, Verdana;
+$secondFontFamily: 'Helvetica', Arial, Verdana;
+$fallBackFontFamily: 'Helvetica', 'PT Sans', Arial, Verdana;
+
+// By default this variables not used anywhere
+$viewportMinWidth: 960px;
+$viewportMinHeight: 100%;
+// if u using preloader u should use $preloaderTime variable for it #bestPractice
+$preloaderTime: 5s;
+// this variable for animation startup time, if u have preloader
+$animationStartUpTime: $preloaderTime + .5s;

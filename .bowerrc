@@ -1,4 +1,4 @@
 {
-	"directory": "dev/assets/",
+	"directory": "app/components/",
 	"analytics": false
 }

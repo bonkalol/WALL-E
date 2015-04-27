@@ -1,0 +1,162 @@
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex($justify, $align) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin flexDirection($direction) {
+	display: flex;
+	flex-direction: $direction
+}
+
+@mixin triangle($position, $width, $height, $color) {
+	height: 0;
+	width: 0;
+	border-style: solid;
+
+	@if $position == left {
+		border-width: $height/2 $width $height/2 0;
+		border-color: transparent $color transparent transparent;
+	}
+	// like a switch
+		@else if $position == bottom-left {
+			border-width: $width 0 0 $width;
+			border-color: transparent transparent transparent $color;
+		}
+
+		@else if $position == bottom {
+			border-width: $height $width/2 0 $width/2;
+			border-color: $color transparent transparent transparent;
+		}
+
+		@else if $position == bottom-right {
+			border-width: 0 0 $width $width;
+			border-color: transparent transparent $color transparent;
+		}
+
+		@else if $position == right {
+			border-width: $height/2 0 $height/2 $width;
+			border-color: transparent transparent transparent $color;
+		}
+
+		@else if $position == top-right {
+			border-width: 0 $width $width 0;
+			border-color: transparent $color transparent transparent;
+		}
+
+		@else if $position == top {
+			border-width: 0 $width/2 $height $width/2;
+			border-color: transparent transparent $color transparent;
+		}
+
+		@else if $position == top-left {
+			border-width: $width $width 0 0;
+			border-color: $color transparent transparent transparent;
+		}
+}
+
+
+@mixin placeholderColor($color) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+
+	&:-moz-placeholder {
+		color: $color;
+	}
+
+	&::-moz-placeholder {
+		color: $color;
+	}
+
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+@mixin filter($fiterName, $filterValue) {
+	-webkit-filter: $filterName($filterValue);
+	-moz-filter: $filterName($filterValue);
+	-o-filter: $filterName($filterValue);
+	-ms-filter: $filterName($filterValue);
+	filter: $filterName($filterValue);
+}
+
+@mixin blur($radius) {
+	-webkit-filter: blur($radius);
+	-moz-filter: blur($radius);
+	-o-filter: blur($radius);
+	-ms-filter: blur($radius);
+	filter: blur($radius);
+}
+
+
+@mixin alignCenter {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin fixedFull {
+	position: fixed;
+	@include size(100%);
+	left: 0;
+	top: 0;
+}
+
+@mixin clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+
+@mixin webp($folder, $file, $fallbackType) {
+
+	body.webp & {
+		background-image: url($folder + 'webp/' + $file + '.webp');
+	}
+	
+	body.nowebp & {
+		background-image: url($folder + $file + $fallbackType);
+	}
+
+}
+
+@mixin reset-btn() {
+	border: none;
+	background: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+// usage example
+/*
+.h1 {
+
+	@include webp('images/', 'background-image', '.jpg');
+
+}
+
+output css:
+
+body.webp .h1 {
+	background-image: url("images/webp/background-image.webp");
+}
+body.nowebp .h1 {
+	background-image: url("images/background-image.png");
+}
+
+
+
+*/
