@@ -32,7 +32,8 @@ tabName должно быть уникально внутри контейнер
 		});
 
 		var tab = tabContainer.querySelector('[data-tab="' + tabTarget + '"]');
-			tab.setAttribute('data-tab-item-active', '');
+
+		tab.setAttribute('data-tab-item-active', '');
 
 	});
 

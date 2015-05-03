@@ -1,6 +1,6 @@
 module.exports = {
 
-	isProduction: false,
+	isProduction: true,
 	jshint: true,
 	// set this var to true if u wanna validate your html
 	// but be carefull, it takes a lot of compilation time
@@ -26,6 +26,7 @@ module.exports = {
 
 		srcPaths: {
 			jade: 'app/jade/*.jade',
+			html: 'dist/*.html',
 			scss: 'app/scss/app.scss',
 			js: ['./app/js/modules/**/*', './app/js/common.js'],
 			jsLibs: 'app/js/libs/**/*.js',

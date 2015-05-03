@@ -26,18 +26,8 @@ gulp.task('build', function(callback) {
 		'webp:all',
 		'svgSprite',
 		'checkCss',
+		'buildUseref',
 		callback);
-
-});
-
-gulp.task('build-production', function() {
-
-	configs.isProduction = true;
-	// remove debug.js
-	// from globs array
-	configs.paths.srcPaths.js.push('!./app/js/modules/debug.js');
-	// start task
-	gulp.start('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all', 'svgSprite');
 
 });
 

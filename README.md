@@ -28,6 +28,11 @@ Before start you must have installed <a href="http://git-scm.com/downloads">git<
 	npm cache clean
 	npm install
 
+or
+
+	git clone https://github.com/bonkalol/QSTemplate-gulp.git project
+	hook.sh
+
 <a href="https://github.com/bonkalol/QSTemplate">Grunt</a> Or <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> version
 
 QSTemplate it's a project template for quick start your web-project. it's based on 3 powerfull components.
@@ -46,11 +51,20 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 
 | task | description |
 |----------|---|
-| <code><strong>default</strong></code> | will clean <code>production</code> folder, compile all source files, and copy all assets. After that, watch and browserSync will start working |
+| <code><strong>default</strong></code> | will clean <code>dist</code> folder, compile all source files, and copy all assets. After that, watch and browserSync will start working |
+| <code><storng>build</storng></code> | will do same as <code>default</code> but without starting browserSync && watch
 | <code><strong>watch</strong></code> | will watch on file changes |
 | <code><strong>start</strong></code> | start <code>watch</code> and <code>browserSync</code> |
 | <code><strong>compile</strong></code> | will run <code>sass</code>, <code>jade</code> and <code>concat</code> tasks |
 | <code><strong>copyStuff</strong></code> | will copy <code>assets</code>, <code>static</code>, <code>data</code> ... |
+
+### Patch notes 3.1.0
+
+1. Add gulp-useref
+2. Add modules/debug.js for clear localStorage from cached fonts / svg
+3. Fix bug with svg sprite
+4. Fix bug with imagemin .webp
+5. Add runSequence
 
 ### Version 3.0.0
 
@@ -109,7 +123,8 @@ QSTemplate это шаблон для быстрого старта вашего
 
 | task | описание |
 |----------|---|
-| <code><strong>default</strong></code> | очистить <code>production</code>, скомпилирует все исходники и скопирует все assets. После этого запустить browserSync и watch |
+| <code><strong>default</strong></code> | очистить <code>dist</code>, скомпилирует все исходники и скопирует все assets. После этого запустить browserSync и watch |
+| <code><storng>build</storng></code> | сделает тоже самое что и <code>default</code> за исключением запуска browserSync && watch
 | <code><strong>watch</strong></code> | запустить gulp-watch |
 | <code><strong>start</strong></code> | запустить <code>watch</code> и <code>browserSync</code> |
 | <code><strong>compile</strong></code> | запустить <code>sass</code>, <code>jade</code> и <code>concat</code> таски |
@@ -117,13 +132,22 @@ QSTemplate это шаблон для быстрого старта вашего
 
 Читать больше в <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
 
+### Патч 3.1.0
+
+1. Добавил gulp-useref
+2. Добавил modules/debug.js для очистки localStorage от кешированых шрифтов / свг
+3. Пофиксил баг с сборкой svg спрайтов
+4. Пофиксил баг с минификацией .webp
+5. Вернул runSequence
+
+
 ### Версия 3.0.0
 
 1. Обновил все зависимости package.json
 2. Добавил .htaccess для appCache и создал manifest файл
 3. Обновил структуру проекта, теперь dev => app, production => dist
 4. Добавил svg-спрайты
-5. Добабвиш кеширование в localStorage шрифтов и Svg спрайтов
+5. Добабвил кеширование в localStorage шрифтов и Svg спрайтов
 6. Исправил баг с imagemin когда она выкидывал ошибку
 7. Удалил Susy
 8. Удалил jquery по умолчанию, теперь все необходимые зависимости устанвливаются с помощь bower
