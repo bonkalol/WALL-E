@@ -27,7 +27,7 @@ gulp.task('watch', function () {
 	});
 	// minimage watcher
 	watch(watchPath.images, function() {
-			gulp.start('imagemin');
+			gulp.start('imagemin', 'webp:newer');
 	});
 	// svg sprite
 	watch(watchPath.svg, function() {

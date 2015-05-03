@@ -1,39 +1,68 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
+	configs = require('./configs'),
+	runSequence = require('run-sequence');
 
-gulp.task('default', function(callback) {
 
-	gulp.run('build');
+gulp.task('default', function() {
+
+	gulp.start('build', 'start');
 
 });
 
 gulp.task('build', function(callback) {
 
-	gulp.run('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all', 'svgSprite');
+	// remove debug.js
+	// from globs array
+	configs.paths.srcPaths.js.push('!./app/js/modules/debug.js');
+	// start task
+	runSequence(
+		'clean',
+		'jade',
+		'sprite',
+		'sass',
+		'concat',
+		'copyStuff',
+		'imagemin:all',
+		'webp:all',
+		'svgSprite',
+		'checkCss',
+		callback);
 
 });
 
-gulp.task('build-sprite', function(callback) {
+gulp.task('build-production', function() {
 
-	gulp.run('sprite', 'sass');
+	configs.isProduction = true;
+	// remove debug.js
+	// from globs array
+	configs.paths.srcPaths.js.push('!./app/js/modules/debug.js');
+	// start task
+	gulp.start('clean', 'sprite', 'jade', 'sass', 'checkCss', 'concat', 'copyStuff', 'imagemin:all', 'svgSprite');
+
+});
+
+gulp.task('build-sprite', function() {
+
+	gulp.start('sprite', 'sass');
 
 });
 
 gulp.task('compile', function() {
 
-	gulp.run('jade', 'sass', 'concat');
+	gulp.start('jade', 'sass', 'concat');
 
 });
 
 
 gulp.task('start', function() {
 
-	gulp.run('browser-sync', 'watch');
+	gulp.start('browser-sync', 'watch');
 
 });
 
 
 gulp.task('copyStuff', function() {
 
-	gulp.run('copyFonts', 'copyLibs', 'copyAssets', 'copyComponents', 'copyData', 'copyStatic');
+	gulp.start('copyFonts', 'copyLibs', 'copyAssets', 'copyComponents', 'copyData', 'copyStatic');
 
 });

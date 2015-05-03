@@ -18,8 +18,8 @@ var gulp = require('gulp'),
 gulp.task('jade', function() {
 	return gulp.src(paths.srcPaths.jade)
 		.pipe(plumber({errorHandler: log}))
-		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
 		.pipe(jade())
+		.pipe(notify('File changed: dev/jade/<%= file.relative %>! Starting Jade.'))
 		.pipe(duration('Finished jade task in'))
 		.pipe(prettify({indent_char: '	', indent_size: 1})).on('error', log)
 		.pipe(configs.htmlValidator ? htmlvalidator({doctype: 'HTML5', charset: 'utf-8'}) : gutil.noop())

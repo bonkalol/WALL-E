@@ -1,0 +1,6 @@
+{
+	"ignore": [
+		"body > svg:first-of-type",
+		"/^#js/"
+	]
+}

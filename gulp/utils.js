@@ -17,7 +17,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('clean', function() {
 
-	del(['production'], function (err, deletedFiles) {
+	return del(['dist/*'], function (err, deletedFiles) {
 		console.log('Files deleted:', deletedFiles.join(', '));
 	});
 

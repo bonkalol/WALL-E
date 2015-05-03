@@ -3,7 +3,7 @@ module.exports = {
 	isProduction: false,
 	jshint: true,
 	// set this var to true if u wanna validate your html
-	// but be carefull, it takes a lot of compilation tome
+	// but be carefull, it takes a lot of compilation time
 	htmlValidator: false,
 	webp: true,
 
@@ -25,12 +25,13 @@ module.exports = {
 	paths: {
 
 		srcPaths: {
-			jade: './app/jade/*.jade',
+			jade: 'app/jade/*.jade',
 			scss: 'app/scss/app.scss',
 			js: ['./app/js/modules/**/*', './app/js/common.js'],
 			jsLibs: 'app/js/libs/**/*.js',
 			sprite: 'app/img/sprite/*.png',
-			images: ['app/img/**/*.+(png|jpg|svg|webp)', '!app/img/sprite/*', '!*.crdownload'],
+			images: ['app/img/**/*.+(png|jpg|svg|webp)', '!app/img/sprite/*', '!*.crdownload', '!app/img/images/*'],
+			webp: ['app/img/**/*.+(png|jpg|webp)', '!app/img/sprite/*', '!app/img/images/*', '!app/img/svg'],
 			svg: 'app/img/svg/*.svg',
 			font: 'app/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			static: ['app/static/**/*', 'app/static/.htaccess'],
@@ -40,7 +41,7 @@ module.exports = {
 		},
 
 		destPaths: {
-			html: './dist/',
+			html: 'dist/',
 			css: 'dist/css/',
 			js: './dist/js/',
 			jsLibs: 'dist/js/libs',
@@ -62,6 +63,7 @@ module.exports = {
 			fonts: 'app/font/**/*.+(woff|woff2|svg|otf|ttf|eot)',
 			sprite: 'app/img/sprite/*.png',
 			images: 'app/img/**/*.+(png|jpg|svg|webp)',
+			webp: ['app/img/**/*.+(png|jpg|webp)', '!app/img/sprite/*', '!app/img/images/*', '!app/img/svg'],
 			svg: 'app/img/svg/*.svg',
 			static: 'app/static/**/*',
 			data: 'app/data/**/*',

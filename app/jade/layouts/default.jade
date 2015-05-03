@@ -6,7 +6,7 @@ doctype html
 
 html
 	//- Application cache
-	//- head(manifest="assets/cache.manifest")
+	//- html(manifest="assets/cache.manifest")
 	head
 		block head
 		include ../partials/head
@@ -27,6 +27,7 @@ html
 
 		block scripts
 
+		//- check is browser support webp format
 		include ../partials/webp
 		//- font loading in localStorage
 		include ../partials/fonts

@@ -41,9 +41,9 @@ gulp.task('imagemin:all', function() {
 
 gulp.task('webp:newer', function() {
 
-	return gulp.src([paths.srcPaths.images, '!svg/'])
+	return gulp.src(paths.srcPaths.webp)
 		.pipe(plumber({errorHandler: log}))
-		.pipe(newer([paths.srcPaths.images, '!svg/']))
+		.pipe(newer(paths.destPaths.webp))
 		.pipe(configs.webp ? webp() : gutil.noop())
 		.pipe(configs.webp ? gulp.dest(paths.destPaths.webp) : gutil.noop());
 
@@ -51,7 +51,7 @@ gulp.task('webp:newer', function() {
 
 gulp.task('webp:all', function() {
 
-	return gulp.src([paths.srcPaths.images, '!svg/'])
+	return gulp.src(paths.srcPaths.webp)
 		.pipe(plumber({errorHandler: log}))
 		.pipe(configs.webp ? webp() : gutil.noop())
 		.pipe(configs.webp ? gulp.dest(paths.destPaths.webp) : gutil.noop());
@@ -62,7 +62,8 @@ var svgConfigs = {
 
 	mode: {
 		symbol: true,
-		inline: true
+		inline: true,
+		css: false
 	},
 
 	svg: {
@@ -76,7 +77,7 @@ var svgConfigs = {
 
 gulp.task('svgSprite', function() {
 
-	return gulp.src(paths.srcPaths.images)
+	return gulp.src(paths.srcPaths.svg)
 		.pipe(plumber({errorHandler: log}))
 		.pipe(svgSprite(svgConfigs))
 		.pipe(gulp.dest('dist/img/'));

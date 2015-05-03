@@ -1,7 +1,16 @@
 var gulp = require('gulp'),
 	configs = require('./configs'),
 	paths = configs.paths,
-	newer = require('gulp-newer');
+	newer = require('gulp-newer'),
+	gulpif = require('gulp-if'),
+	plumber = require('gulp-plumber'),
+	jsonmin = require('gulp-jsonminify'),
+	jsonlint = require('gulp-jsonlint'),
+	gutil = require('gulp-util');
+
+var reporter = function (file) {
+	gutil.log(gutil.colors.red('File ' + file.path + ' is not a valid JSON.'));
+};
 
 gulp.task('copyFonts', function() {
 	return gulp.src(paths.srcPaths.font)
@@ -22,6 +31,10 @@ gulp.task('copyAssets', function() {
 
 gulp.task('copyData', function() {
 	return gulp.src(paths.srcPaths.data)
+	.pipe(plumber({errorHandler: log}))
+	.pipe(gulpif(/[.]json$/, jsonmin()))
+	.pipe(gulpif(/[.]json$/, jsonlint()))
+	.pipe(gulpif(/[.]json$/, jsonlint.reporter(reporter)))
 	.pipe(gulp.dest(paths.destPaths.data));
 });
 
