@@ -42,6 +42,6 @@ gulp.task('sass', function () {
 		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
 		.pipe(reload({stream: true}))
-		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'));
-		.pipe(gulp.dest(paths.destPaths.css))
+		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'))
+		.pipe(gulp.dest(paths.destPaths.css));
 });
