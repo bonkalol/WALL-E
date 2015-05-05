@@ -1,6 +1,6 @@
 module.exports = {
 
-	isProduction: true,
+	isProduction:false,
 	jshint: true,
 	// set this var to true if u wanna validate your html
 	// but be carefull, it takes a lot of compilation time

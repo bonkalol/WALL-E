@@ -34,22 +34,14 @@ gulp.task('sass', function () {
 			],
 			cascade: true
 		}))
+		.pipe(isProduction ? uncss({
+			html: ['dist/*.html'],
+			uncssrc: './.uncss'
+		}) : gutil.noop())
 		.pipe(duration('Finished Autoprefixer task in'))
 		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
-		.pipe(gulp.dest(paths.destPaths.css))
 		.pipe(reload({stream: true}))
 		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'));
-});
-
-
-gulp.task('checkCss', function() {
-
-	return gulp.src('./dist/css/app.css')
-		.pipe(uncss({
-			html: ['dist/*.html'],
-			uncssrc: './.uncss'
-		}))
-		.pipe(gulp.dest('./dist/css/'));
-
+		.pipe(gulp.dest(paths.destPaths.css))
 });

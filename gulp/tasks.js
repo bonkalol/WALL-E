@@ -25,7 +25,6 @@ gulp.task('build', function(callback) {
 		'imagemin:all',
 		'webp:all',
 		'svgSprite',
-		'checkCss',
 		'buildUseref',
 		callback);
 
