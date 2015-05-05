@@ -160,3 +160,22 @@ body.nowebp .h1 {
 
 
 */
+
+
+@mixin ie10-11() {
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+
+
+}
+
+
+@mixin ie9() {
+
+	@media screen and (min-width:0) and (min-resolution: .001dpcm) {
+		@content;
+	}
+
+}
