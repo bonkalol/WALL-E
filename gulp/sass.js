@@ -41,7 +41,7 @@ gulp.task('sass', function () {
 		.pipe(duration('Finished Autoprefixer task in'))
 		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())
-		.pipe(reload({stream: true}))
 		.pipe(notify('File created: ' + paths.destPaths.css + '<%= file.relative %>! SASS Finished.'))
-		.pipe(gulp.dest(paths.destPaths.css));
+		.pipe(gulp.dest(paths.destPaths.css))
+		.pipe(reload({stream: true}));
 });

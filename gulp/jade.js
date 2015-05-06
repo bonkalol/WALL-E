@@ -29,9 +29,9 @@ gulp.task('jade', function() {
 		.pipe(!isProduction ? prettify({indent_char: '	', indent_size: 1}) : gutil.noop())
 		.pipe(configs.htmlValidator ? htmlvalidator({doctype: 'HTML5', charset: 'utf-8'}) : gutil.noop())
 		.pipe(duration('Finished prettify task in'))
-		.pipe(reload({stream: true}))
 		.pipe(notify('File created: ' + paths.destPaths.html + '<%= file.relative %>! Jade Finished.'))
-		.pipe(gulp.dest(paths.destPaths.html));
+		.pipe(gulp.dest(paths.destPaths.html))
+		.pipe(reload({stream: true}));
 });
 
 
