@@ -12,7 +12,9 @@ gulp.task('sprite', function () {
 	.pipe(spritesmith({
 		imgName: 'sprite.png',
 		cssName: '../../dev/scss/project/_sprite.scss',
-		imgPath: '../img/sprite.png'
+		imgPath: '../img/sprite.png',
+		retinaSrcFilter: ['app/img/sprite/*-2x.png'],
+		retinaImgName: 'sprite-2x.png'
 	}))
 	.pipe(plumber({errorHandler: log}))
 	.pipe(gulp.dest(paths.destPaths.images));

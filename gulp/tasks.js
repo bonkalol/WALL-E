@@ -30,9 +30,12 @@ gulp.task('build', function(callback) {
 
 });
 
-gulp.task('build-sprite', function() {
+gulp.task('build-sprite', function(callback) {
 
-	gulp.start('sprite', 'sass');
+	runSequence(
+		'sprite',
+		'sass',
+		callback);
 
 });
 
