@@ -34,7 +34,6 @@
     "gulp-cssmin": "~0.1.7",
     "gulp-duration": "0.0.0",
     "gulp-filter": "^2.0.2",
-    "gulp-html-prettify": "0.0.1",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "~2.2.1",
     "gulp-jade": "~1.0.0",
