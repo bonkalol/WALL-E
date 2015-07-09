@@ -1,6 +1,7 @@
-<img src="http://truthoraction.com/host/walle.jpg" alt="WALL-e">
 
 # WALL-E
+
+<img src="http://truthoraction.com/host/walle.jpg" alt="WALL-e" style="max-height: 200px">
 
 <a href="#en">EN</a> or <a href="#ru">RU</a>
 
