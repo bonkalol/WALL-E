@@ -1,7 +1,7 @@
 
 # WALL-E
 
-<img src="http://truthoraction.com/host/walle.jpg" alt="WALL-e" style="max-height: 200px">
+<img src="http://truthoraction.com/host/walle.jpg" alt="WALL-e">
 
 <a href="#en">EN</a> or <a href="#ru">RU</a>
 
@@ -13,8 +13,6 @@
 
 - Git ~1.9
 - Gulp ~3.8.11
-
-Installing <a href="http://sass-lang.com/install">Sass</a>.
 
 Before start you must have installed <a href="http://git-scm.com/downloads">git</a> & <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">gulp</a>.
 
@@ -58,8 +56,8 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 
 #### Keys
 
-<code>gulp --debug</code> - will run gulp without files minification
-<code>gulp --es6</code> - will run gulp with babel
+- <code>gulp --debug</code> - will run gulp without files minification
+- <code>gulp --es6</code> - will run gulp with babel
 
 ### Patch notes 4.0.0
 
@@ -128,8 +126,6 @@ WALL-E это шаблон для быстрого старта вашего в�
 - Git ~1.9
 - Gulp ~3.8.11
 
-Установите <a href="http://sass-lang.com/install">Sass</a>.
-
 Перед начало у вас должен быть установлен <a href="http://git-scm.com/downloads">git</a> & <a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md">gulp</a>.
 
 
@@ -152,8 +148,8 @@ WALL-E это шаблон для быстрого старта вашего в�
 
 #### Ключи
 
-<code>gulp --debug</code> - запустит gulp без минификации файлов
-<code>gulp --es6</code> - запустит gulp с babel, позволит использовать es6
+- <code>gulp --debug</code> - запустит gulp без минификации файлов
+- <code>gulp --es6</code> - запустит gulp с babel, позволит использовать es6
 
 ### Patch notes 4.0.0
 
