@@ -14,10 +14,10 @@ var gulp = require('gulp'),
 	newer = require('gulp-newer'),
 	configs = require('./configs'),
 	paths = configs.paths,
-	coffee = require('gulp-coffee'),
-	coffeelint = require('gulp-coffeelint'),
-	gulpif = require('gulp-if'),
-	plumber = require('gulp-plumber');
+	babel = require('gulp-babel'),
+	argv = require('yargs').argv,
+	plumber = require('gulp-plumber'),
+	sourcemaps = require('gulp-sourcemaps');
 
 
 // Concat all JS files into production/js/main.js
@@ -25,12 +25,11 @@ var gulp = require('gulp'),
 gulp.task('concat', function() {
 	return gulp.src(paths.srcPaths.js)
 		.pipe(plumber({errorHandler: log}))
-		.pipe(gulpif(/[.]coffee$/, coffee()))
-		.pipe(gulpif(/[.]coffee$/, coffeelint()))
+		.pipe(argv.es6 ? sourcemaps.init() : gutil.noop())
+		.pipe(argv.es6 ? babel() : gutil.noop())
 		.pipe(concat('app.js'))
-		.pipe(duration('Finished Concat task in'))
 		.pipe(isProduction ? uglify() : gutil.noop())
-		.pipe(isProduction ? duration('Finished Uglify task in') : gutil.noop())
+		.pipe(argv.es6 ? sourcemaps.write('/maps') : gutil.noop())
 		.pipe(gulp.dest(paths.destPaths.js))
 		.pipe(reload({stream: true}));
 });
@@ -40,7 +39,7 @@ gulp.task('jshint', function() {
 
 	if ( configs.jshint ) {
 		return gulp.src(paths.srcPaths.js)
-			.pipe(jshint())
+			.pipe(jshint({esnext: argv.es6 ? true : false}))
 			.pipe(jshint.reporter(stylish));
 	} else {
 		console.log(('Jshint are disabled. Set variable in configs.js to true.').yellow);

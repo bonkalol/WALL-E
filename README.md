@@ -1,4 +1,6 @@
-# QSTemplate
+<img src="http://truthoraction.com/host/walle.jpg" alt="WALL-e">
+
+# WALL-E
 
 <a href="#en">EN</a> or <a href="#ru">RU</a>
 
@@ -10,7 +12,6 @@
 
 - Git ~1.9
 - Gulp ~3.8.11
-- SASS >= 3.4
 
 Installing <a href="http://sass-lang.com/install">Sass</a>.
 
@@ -33,15 +34,11 @@ or
 	git clone https://github.com/bonkalol/QSTemplate-gulp.git project
 	hook.sh
 
-<a href="https://github.com/bonkalol/QSTemplate">Grunt</a> Or <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> version
-
-QSTemplate it's a project template for quick start your web-project. it's based on 3 powerfull components.
+WALL-E it's a project template for quick start your web-project. it's based on 3 powerfull components.
 
 1. <code>Jade</code>
-2. <code>SASS (SCSS)</code>
+2. <code>SASS (Libsass)</code>
 3. <code>Gulp</code>
-
-Read more in <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
 
 ### Bugs / enhancement
 
@@ -57,6 +54,31 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 | <code><strong>start</strong></code> | start <code>watch</code> and <code>browserSync</code> |
 | <code><strong>compile</strong></code> | will run <code>sass</code>, <code>jade</code> and <code>concat</code> tasks |
 | <code><strong>copyStuff</strong></code> | will copy <code>assets</code>, <code>static</code>, <code>data</code> ... |
+
+#### Keys
+
+<code>gulp --debug</code> - will run gulp without files minification
+<code>gulp --es6</code> - will run gulp with babel
+
+### Patch notes 4.0.0
+
+<strong>Breaking changes:</strong>
+
+1. Replace gulp-ruby-sass to libsass
+2. Remove coffeeScript support
+3. Added gulp-babel ( for syntax higlight in sublime use <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
+
+<strong>Changes:</strong>
+
+1. Remove uncss
+2. Remove gulp-html-prettify
+3. BrowserSync will not auto open browser anymore
+4. Add --debug key, now u don't need change isProduction var, just run gulp to minify files
+and gulp --debug will not minify
+5. Add sourcemaps for js
+6. Fix sourcemaps for sass
+7. Clean up package.json
+
 
 ### Patch notes 3.1.0
 
@@ -92,12 +114,10 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 
 ## Ru
 
-<a href="https://github.com/bonkalol/QSTemplate">Grunt</a> или <a href="https://github.com/bonkalol/QSTemplate-gulp">Gulp</a> версия
-
-QSTemplate это шаблон для быстрого старта вашего веб-проекта, состоит он из 3ех мощных компонентов для веб-разработки.
+WALL-E это шаблон для быстрого старта вашего веб-проекта, состоит он из 3ех мощных компонентов для веб-разработки.
 
 1. <code>Jade</code>
-2. <code>SASS (SCSS)</code>
+2. <code>SASS (Libsass)</code>
 3. <code>Gulp</code>
 
 ### Начало работы
@@ -106,7 +126,6 @@ QSTemplate это шаблон для быстрого старта вашего
 
 - Git ~1.9
 - Gulp ~3.8.11
-- SASS >= 3.4
 
 Установите <a href="http://sass-lang.com/install">Sass</a>.
 
@@ -130,7 +149,29 @@ QSTemplate это шаблон для быстрого старта вашего
 | <code><strong>compile</strong></code> | запустить <code>sass</code>, <code>jade</code> и <code>concat</code> таски |
 | <code><strong>copyStuff</strong></code> | скопирует <code>assets</code>, <code>static</code>, <code>data</code> ... |
 
-Читать больше в <a href="https://github.com/bonkalol/QSTemplate-gulp/wiki">wiki</a>
+#### Ключи
+
+<code>gulp --debug</code> - запустит gulp без минификации файлов
+<code>gulp --es6</code> - запустит gulp с babel, позволит использовать es6
+
+### Patch notes 4.0.0
+
+<strong>Критические изменения:</strong>
+
+1. Заменил ruby-sass на libsass
+2. Убрал поддержку coffeescript
+3. Добавил gulp-babel ( для подсветки синтаксиса в саблайме рекомендую <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
+
+<strong>Изменения:</strong>
+
+1. Удалил uncss
+2. Убрал gulp-html-prettify
+3. BrowserSync теперь не будет автоматически открывать браузер
+4. Добавил --debug ключ, теперь не надо менять isProduction переменную, просто запустите gulp чтобы файлы минифицировались
+и gulp --debug чтобы не минифицировались
+5. Добавил sourcemaps для js
+6. Исправил sourcemaps для sass
+7. Почистил package.json
 
 ### Патч 3.1.0
 

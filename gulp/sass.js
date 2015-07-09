@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
-	autoprefixer = require('gulp-autoprefixer'),
+	autoprefixerPipe = require('gulp-autoprefixer'),
 	cssmin = require('gulp-cssmin'),
 	gutil = require('gulp-util'),
 	notify = require('gulp-notify'),
@@ -11,33 +11,31 @@ var gulp = require('gulp'),
 	colors = require('colors'),
 	configs = require('./configs'),
 	configsSass = configs.sass,
-	configsAutoprefixer = configs.autoprefixer,
+	autoprefixer = configs.autoprefixer,
 	isProduction = configs.isProduction,
 	paths = configs.paths,
 	sourcemaps = require('gulp-sourcemaps'),
-	uncss = require('gulp-uncss');
+	plumber = require('gulp-plumber');
 
 gulp.task('sass', function () {
-	return sass(paths.srcPaths.scss, { style: 'expanded', sourcemap: true })
-		.on('error', log)
+	return gulp.src(paths.srcPaths.scss)
+		.pipe(plumber({errorHandler: log}))
+		.pipe(sourcemaps.init())
+		.pipe(sass())
 		.pipe(sourcemaps.write())
 		.pipe(duration('Finished SASS task in'))
-		.pipe(autoprefixer({
+		.pipe(autoprefixerPipe({
 			browsers: [
-				'Android >= ' + configsAutoprefixer.android,
-				'Chrome >= ' + configsAutoprefixer.chrome,
-				'Firefox >= ' + configsAutoprefixer.firefox,
-				'Explorer >= ' + configsAutoprefixer.ie,
-				'iOS >= ' + configsAutoprefixer.ios,
-				'Opera >= ' + configsAutoprefixer.opera,
-				'Safari >= ' + configsAutoprefixer.safari
+				'Android >= ' + autoprefixer.android,
+				'Chrome >= ' + autoprefixer.chrome,
+				'Firefox >= ' + autoprefixer.firefox,
+				'Explorer >= ' + autoprefixer.ie,
+				'iOS >= ' + autoprefixer.ios,
+				'Opera >= ' + autoprefixer.opera,
+				'Safari >= ' + autoprefixer.safari
 			],
 			cascade: true
 		}))
-		.pipe(isProduction ? uncss({
-			html: ['dist/*.html'],
-			uncssrc: './.uncss'
-		}) : gutil.noop())
 		.pipe(duration('Finished Autoprefixer task in'))
 		.pipe(isProduction ? cssmin() : gutil.noop())
 		.pipe(isProduction ? duration('Finished CssMin task in') : gutil.noop())

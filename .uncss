@@ -1,6 +1,0 @@
-{
-	"ignore": [
-		"body > svg:first-of-type",
-		"/(^body.webp|body.nowebp|.js$)/"
-	]
-}
