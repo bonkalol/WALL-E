@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-ruby-sass'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
 	autoprefixerPipe = require('gulp-autoprefixer'),
@@ -18,10 +18,8 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber');
 
 gulp.task('sass', function () {
-	return gulp.src(paths.srcPaths.scss)
+	return sass(paths.srcPaths.scss, { style: 'expanded', sourcemap: true })
 		.pipe(plumber({errorHandler: log}))
-		.pipe(sourcemaps.init())
-		.pipe(sass())
 		.pipe(sourcemaps.write())
 		.pipe(duration('Finished SASS task in'))
 		.pipe(autoprefixerPipe({

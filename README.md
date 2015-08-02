@@ -36,7 +36,7 @@ or
 WALL-E it's a project template for quick start your web-project. it's based on 3 powerfull components.
 
 1. <code>Jade</code>
-2. <code>SASS (Libsass)</code>
+2. <code>SASS (Ruby sass)</code>
 3. <code>Gulp</code>
 
 ### Bugs / enhancement
@@ -63,9 +63,8 @@ Found a bug or want to suggest improvements? Write about it in <a href="https://
 
 <strong>Breaking changes:</strong>
 
-1. Replace gulp-ruby-sass to libsass
-2. Remove coffeeScript support
-3. Added gulp-babel ( for syntax higlight in sublime use <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
+1. Remove coffeeScript support
+2. Added gulp-babel ( for syntax higlight in sublime use <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
 
 <strong>Changes:</strong>
 
@@ -116,7 +115,7 @@ and gulp --debug will not minify
 WALL-E это шаблон для быстрого старта вашего веб-проекта, состоит он из 3ех мощных компонентов для веб-разработки.
 
 1. <code>Jade</code>
-2. <code>SASS (Libsass)</code>
+2. <code>SASS (Ruby sass)</code>
 3. <code>Gulp</code>
 
 ### Начало работы
@@ -140,7 +139,7 @@ WALL-E это шаблон для быстрого старта вашего в�
 | task | описание |
 |----------|---|
 | <code><strong>default</strong></code> | очистить <code>dist</code>, скомпилирует все исходники и скопирует все assets. После этого запустить browserSync и watch |
-| <code><storng>build</storng></code> | сделает тоже самое что и <code>default</code> за исключением запуска browserSync && watch
+| <code><strong>build</strong></code> | сделает тоже самое что и <code>default</code> за исключением запуска browserSync && watch
 | <code><strong>watch</strong></code> | запустить gulp-watch |
 | <code><strong>start</strong></code> | запустить <code>watch</code> и <code>browserSync</code> |
 | <code><strong>compile</strong></code> | запустить <code>sass</code>, <code>jade</code> и <code>concat</code> таски |
@@ -155,9 +154,8 @@ WALL-E это шаблон для быстрого старта вашего в�
 
 <strong>Критические изменения:</strong>
 
-1. Заменил ruby-sass на libsass
-2. Убрал поддержку coffeescript
-3. Добавил gulp-babel ( для подсветки синтаксиса в саблайме рекомендую <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
+1. Убрал поддержку coffeescript
+2. Добавил gulp-babel ( для подсветки синтаксиса в саблайме рекомендую <a href="https://github.com/Benvie/JavaScriptNext.tmLanguage">JavascriptNext</a> )
 
 <strong>Изменения:</strong>
 
